@@ -1,10 +1,14 @@
+import gui_main.GUI;
 
 public class Main {
 
 	public static void main(String[] args) {
-		System.out.println("Hva så røvhuller");
 		
-		System.out.println("Jeg er frisk, på Black banana");
+		GUI gui = new GUI();
+		
+		gui.showMessage("HEJ");
+		
+		
 		
 	}
 }

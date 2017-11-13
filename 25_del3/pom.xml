@@ -16,9 +16,7 @@
 			</snapshots>
 		</repository>
 	</repositories>
-
-
-
+	
 	<build>
 		<sourceDirectory>src</sourceDirectory>
 		<plugins>
