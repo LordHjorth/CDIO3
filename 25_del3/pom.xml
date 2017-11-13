@@ -3,6 +3,9 @@
   <groupId>25_del3</groupId>
   <artifactId>25_del3</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+  
+  
+  
   <build>
     <sourceDirectory>src</sourceDirectory>
     <plugins>
@@ -16,4 +19,11 @@
       </plugin>
     </plugins>
   </build>
+  <dependencies>
+  	<dependency>
+  		<groupId>diplomitdtu</groupId>
+  		<artifactId>matadorgui</artifactId>
+  		<version>1.0.0</version>
+  	</dependency>
+  </dependencies>
 </project>
