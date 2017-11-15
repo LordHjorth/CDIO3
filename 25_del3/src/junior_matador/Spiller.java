@@ -8,16 +8,18 @@ import gui_fields.GUI_Player;
 import gui_main.GUI;
 
 public class Spiller {
-
+	private static GUI_Player[] player;
 	
 	public static void opretSpiller() {
 	
 		
 	GUI gui = new GUI(Platform.fields);
-	int msg = gui.getUserInteger("Hvor mange spillere er i", 2, 4);
-
+	int antal = gui.getUserInteger("Hvor mange spillere er i", 2, 4);
+	
+	
+	player = new GUI_Player[antal];
 	int i = 0;
-	while (i < msg) {
+	while (i < antal) {
 		int v = i + 1;
 		
 		
@@ -42,9 +44,16 @@ public class Spiller {
 			car.setPrimaryColor(Color.pink);
 		}
 
-		gui.addPlayer(new GUI_Player(navn, 1000324354, car));
+		player[i] = new GUI_Player(navn,1000, car);
+		gui.addPlayer(player[i]);
 		i++;
 	}
 	
+	
+	
+	}
+	public static GUI_Player getSpiller(int i) {
+		
+		return player[i-1];
 	}
 }
