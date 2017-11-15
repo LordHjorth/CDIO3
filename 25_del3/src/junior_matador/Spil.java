@@ -1,6 +1,6 @@
 package junior_matador;
 
-import gui_fields.GUI_Player;
+import gui_fields.GUI_Field;
 
 public class Spil {
 
@@ -8,11 +8,19 @@ public class Spil {
 
 		Terning terning = new Terning();
 
+		for (int i = 1; i <= Spiller.antal; i++) {
+			Platform.fields[0].setCar(Spiller.getSpiller(i), true);
+		}
+		
+
+		terning.random();
+		
+		
 		while (true) {
-			
+
 			int i = 1;
 			switch (i) {
-		
+
 			case 1:
 				break;
 			case 2:
@@ -93,10 +101,8 @@ public class Spil {
 				break;
 			case 40:
 				break;
-
 			}
 		}
-
 	}
 
 }
