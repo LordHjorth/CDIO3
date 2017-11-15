@@ -1,3 +1,4 @@
+package junior_matador;
 import java.awt.Color;
 
 import javax.swing.JOptionPane;
@@ -18,6 +19,10 @@ public class Spiller {
 	int i = 0;
 	while (i < msg) {
 		int v = i + 1;
+		
+		
+		
+		
 		String navn = JOptionPane.showInputDialog("Dit navn spiller" + v + " : ");
 		GUI_Car car = new GUI_Car();
 		String farve = gui.getUserSelection("Farven på din bil", "Sort", "Gul", "Rød", "Grøn", "Pink");
@@ -37,7 +42,7 @@ public class Spiller {
 			car.setPrimaryColor(Color.pink);
 		}
 
-		gui.addPlayer(new GUI_Player(navn, 1000, car));
+		gui.addPlayer(new GUI_Player(navn, 1000324354, car));
 		i++;
 	}
 	

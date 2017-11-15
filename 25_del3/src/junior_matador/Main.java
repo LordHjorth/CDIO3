@@ -1,4 +1,4 @@
-
+package junior_matador;
 
 public class Main {
 
@@ -6,6 +6,7 @@ public class Main {
 
 	Platform.opretSpilleplade();
 	Spiller.opretSpiller();	
+	
 
 	}
 

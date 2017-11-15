@@ -1,3 +1,4 @@
+package junior_matador;
 import java.awt.Color;
 
 import javax.swing.JOptionPane;
