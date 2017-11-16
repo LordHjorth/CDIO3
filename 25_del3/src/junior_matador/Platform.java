@@ -23,12 +23,12 @@ public class Platform {
 	public static void opretSpilleplade () {
 		
 		Color Start = new Color(76, 153, 0);
-		Color Tower = new Color(74, 159, 223);
-		Color Crater = new Color(160, 160, 160);
-		Color Palace_gates = new Color(255, 204, 255);
-		Color Cold_Desert = new Color(204, 255, 255);
-		Color Walled_City = new Color(255, 102, 0);
-		Color Monastery = new Color(255, 204, 229);
+		Color Madboder = new Color(102, 102, 0); //Opretter farven der kobler madboderne
+		Color SlikogIs = new Color(102,178,255);
+		Color Intellektuel = new Color(181, 83, 142);
+		Color AktivUnderholdning = new Color(255, 243, 131);
+		Color BioSpil = new Color(223, 63, 63);
+		Color Butikker= new Color(245, 249, 119);
 		Color Black_cave = new Color(0, 0, 0);
 		Color Huts = new Color(204, 102, 0);
 		Color The_werewall = new Color(229, 31, 31);
@@ -38,25 +38,28 @@ public class Platform {
 
 		fields[0] = new GUI_Start("START", "Modtag: 2 kr", "Du får 2 kr fra banken, hver gang du passerer start",
 				Color.green, Color.black);
-		fields[1] = new GUI_Street();
-		fields[2] = new GUI_Street("Blæksprutten", " Pris: 3 kr", " Koster 3 kr.", "", Color.blue, Color.WHITE);
-		fields[3] = new GUI_Street("SVEND SVINGARM", " Pris: 2 kr", " Koster 2 kr.", "", Color.blue, Color.WHITE);
-		fields[4] = new GUI_Street();
-		fields[5] = new GUI_Street();
-		fields[6] = new GUI_Street();
-		fields[7] = new GUI_Street("DEMONEN", " Pris: 4 kr", " Koster 4 kr.", "", Color.red, Color.black);
-		fields[8] = new GUI_Street("GYLDNE TÅRN", " Pris: 3 kr", " Koster 3 kr.", "", Color.red, Color.black);
-		fields[9] = new GUI_Street();
-		fields[10] = new GUI_Jail();
-		fields[10].setSubText("FÆNGSEL");
-		fields[11] = new GUI_Street();
-		fields[12] = new GUI_Street("TEKOPPERNE", " Pris: 3 kr", " Koster 3 kr.", "", Color.orange, Color.black);
-		fields[13] = new GUI_Street("TORNADOEN", " Pris: 3 kr", " Koster 3 kr.", "", Color.orange, Color.black);
-		fields[14] = new GUI_Street();
-		fields[15] = new GUI_Street();
-		fields[16] = new GUI_Street();
-		fields[17] = new GUI_Street("HURLUMHEJ", " Pris: 3 kr", " Koster 3 kr.", "", Color.black, Color.red);
-		fields[18] = new GUI_Street("SPØGELSES HUSET", " Pris: 3 kr", " Koster 3 kr.", "", Color.black, Color.red);
+		fields[1] = new GUI_Street("Burgerbaren","Pris:1 kr","Burgerbaren","",Madboder,Color.BLACK);
+		fields[2] = new GUI_Street("Pizzahuset", " Pris: 1 kr", "Pizzahuset", "", Madboder, Color.BLACK);
+		fields[3] = new GUI_Chance("?", "Chance", "Prøv Lykken", Color.WHITE, Color.BLACK);
+		fields[4] = new GUI_Street("Slikbutikken","Pris: 1 kr", "Slikbutikken","",SlikogIs,Color.BLACK);
+		fields[5] = new GUI_Street("Iskiosken","Pris: 1 kr", "Iskiosken","",SlikogIs,Color.BLACK);
+		fields[6] = new GUI_Jail();
+		fields[6].setSubText("Fængsel");
+		fields[6].setDescription("På besøg i fængslet");
+		fields[7] = new GUI_Street("Museet", " Pris: 2 kr", " Museet", "", Intellektuel, Color.black);
+		fields[8] = new GUI_Street("Biblioteket", " Pris: 2 kr", " Biblioteket", "", Intellektuel, Color.black);
+		fields[9] = new GUI_Chance("?", "Chance", "Prøv Lykken", Color.WHITE, Color.BLACK);
+		fields[10] = new GUI_Street("Skaterparken", " Pris: 2 kr", " Skaterparken", "", AktivUnderholdning, Color.black);
+		fields[11] = new GUI_Street("Swimmingpoolen", " Pris: 2 kr", " Swimmingpoolen", "", AktivUnderholdning, Color.black);
+		fields[12] = new GUI_Refuge("", "Gratis Parkering", "Gratis Parkering", "Her har du helle!", Color.WHITE, Color.BLACK);
+		fields[13] = new GUI_Street("Spillehallen", " Pris: 3 kr", " Spillehallen", "", BioSpil, Color.black);
+		fields[14] = new GUI_Street("Biografen", " Pris: 3 kr", " Biografen", "", BioSpil, Color.black);
+		fields[15] = new GUI_Chance("?", "Chance", "Prøv Lykken", Color.WHITE, Color.BLACK);
+		fields[16] = new GUI_Street("Legetøjsbutikken", " Pris: 3 kr", " Legetøjsbutikken", "", Butikker, Color.black);
+		fields[17] = new GUI_Street("Dyrehandlen", " Pris: 3 kr", " Dyrehandlen", "", Butikker, Color.black);
+		fields[18] = new GUI_Jail();
+		fields[18].setSubText("Fængsel");
+		fields[18].setDescription("Gå i fængslet");
 		fields[19] = new GUI_Street();
 		fields[20] = new GUI_Street();
 		fields[21] = new GUI_Street();
