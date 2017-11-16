@@ -29,15 +29,13 @@ public class Platform {
 		Color AktivUnderholdning = new Color(255, 243, 131);
 		Color BioSpil = new Color(223, 63, 63);
 		Color Butikker= new Color(245, 249, 119);
-		Color Black_cave = new Color(0, 0, 0);
-		Color Huts = new Color(204, 102, 0);
-		Color The_werewall = new Color(229, 31, 31);
-		Color The_pit = new Color(224, 224, 224);
-		Color goldmine = new Color(212, 175, 55);
+		Color ZooBowl = new Color(0, 102,51);
+		Color Vand = new Color(22, 3, 152);
+		Color Tommefelter = new Color(212, 175, 55);
 		
 
 		fields[0] = new GUI_Start("START", "Modtag: 2 kr", "Du får 2 kr fra banken, hver gang du passerer start",
-				Color.green, Color.black);
+				Start, Color.black);
 		fields[1] = new GUI_Street("Burgerbaren","Pris:1 kr","Burgerbaren","",Madboder,Color.BLACK);
 		fields[2] = new GUI_Street("Pizzahuset", " Pris: 1 kr", "Pizzahuset", "", Madboder, Color.BLACK);
 		fields[3] = new GUI_Chance("?", "Chance", "Prøv Lykken", Color.WHITE, Color.BLACK);
@@ -60,27 +58,27 @@ public class Platform {
 		fields[18] = new GUI_Jail();
 		fields[18].setSubText("Fængsel");
 		fields[18].setDescription("Gå i fængslet");
-		fields[19] = new GUI_Street();
-		fields[20] = new GUI_Street();
-		fields[21] = new GUI_Street();
-		fields[22] = new GUI_Street("", " Pris: 3 kr", " Koster 3 kr.", "", Color.yellow, Color.black);
-		fields[23] = new GUI_Street("", " Pris: 3 kr", " Koster 3 kr.", "", Color.yellow, Color.black);
-		fields[24] = new GUI_Street();
-		fields[25] = new GUI_Street();
-		fields[26] = new GUI_Street();
-		fields[27] = new GUI_Street("", " Pris: 3 kr", " Koster 3 kr.", "", goldmine, Color.white);
-		fields[28] = new GUI_Street("", " Pris: 3 kr", " Koster 3 kr.", "", goldmine, Color.white);
-		fields[29] = new GUI_Street();
-		fields[30] = new GUI_Street();
-		fields[31] = new GUI_Street();
-		fields[32] = new GUI_Street("", " Pris: 3 kr", " Koster 3 kr.", "", Color.pink, Color.black);
-		fields[33] = new GUI_Street("", " Pris: 3 kr", " Koster 3 kr.", "", Color.pink, Color.black);
-		fields[34] = new GUI_Street();
-		fields[35] = new GUI_Street();
-		fields[36] = new GUI_Street();
-		fields[37] = new GUI_Street("", " Pris: 3 kr", " Koster 3 kr.", "", Start, Color.black);
-		fields[38] = new GUI_Street("", " Pris: 3 kr", " Koster 3 kr.", "", Start, Color.black);
-		fields[39] = new GUI_Street();
+		fields[19] = new GUI_Street("Bowlinghallen", " Pris: 4 kr", " Bowlinghallen", "", ZooBowl, Color.black);
+		fields[20] = new GUI_Street("Zoo", " Pris: 4 kr", " Zoo", "", ZooBowl, Color.black);
+		fields[21] = new GUI_Chance("?", "Chance", "Prøv Lykken", Color.WHITE, Color.BLACK);
+		fields[22] = new GUI_Street("Vandlandet", " Pris: 5 kr", "Vandlandet", "", Vand, Color.WHITE);
+		fields[23] = new GUI_Street("Strandpromenaden", " Pris: 5 kr", " Strandpromenaden", "", Vand, Color.WHITE);
+		fields[24] = new GUI_Street("N/A", "", "N/A", "", Tommefelter, Color.white);
+		fields[25] = new GUI_Street("N/A", "", "N/A", "", Tommefelter, Color.white);
+		fields[26] = new GUI_Street("N/A", "", "N/A", "", Tommefelter, Color.white);
+		fields[27] = new GUI_Street("N/A", "", "N/A", "", Tommefelter, Color.white);
+		fields[28] = new GUI_Street("N/A", "", "N/A", "", Tommefelter, Color.white);
+		fields[29] = new GUI_Street("N/A", "", "N/A", "", Tommefelter, Color.white);
+		fields[30] = new GUI_Street("N/A", "", "N/A", "", Tommefelter, Color.white);
+		fields[31] = new GUI_Street("N/A", "", "N/A", "", Tommefelter, Color.white);
+		fields[32] = new GUI_Street("N/A", "", "N/A", "", Tommefelter, Color.white);
+		fields[33] = new GUI_Street("N/A", "", "N/A", "", Tommefelter, Color.white);
+		fields[34] = new GUI_Street("N/A", "", "N/A", "", Tommefelter, Color.white);
+		fields[35] = new GUI_Street("N/A", "", "N/A", "", Tommefelter, Color.white);
+		fields[36] = new GUI_Street("N/A", "", "N/A", "", Tommefelter, Color.white);
+		fields[37] = new GUI_Street("N/A", "", "N/A", "", Tommefelter, Color.white);
+		fields[38] = new GUI_Street("N/A", "", "N/A", "", Tommefelter, Color.white);
+		fields[39] = new GUI_Street("N/A", "", "N/A", "", Tommefelter, Color.white);
 
 		
 		
