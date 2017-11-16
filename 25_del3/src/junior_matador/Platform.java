@@ -1,29 +1,23 @@
 package junior_matador;
 import java.awt.Color;
 
-import javax.swing.JOptionPane;
 
-import gui_fields.GUI_Brewery;
-import gui_fields.GUI_Car;
 import gui_fields.GUI_Chance;
 import gui_fields.GUI_Field;
 import gui_fields.GUI_Jail;
-import gui_fields.GUI_Ownable;
-import gui_fields.GUI_Player;
 import gui_fields.GUI_Refuge;
 import gui_fields.GUI_Start;
 import gui_fields.GUI_Street;
-import gui_fields.GUI_Tax;
-import gui_main.GUI;
 
 public class Platform {
 
 	public static GUI_Field[] fields = new GUI_Field[40];
 	
 	public static void opretSpilleplade () {
-		
+		//Opretter farver der kobler felterne sammen
+		 
 		Color Start = new Color(76, 153, 0);
-		Color Madboder = new Color(102, 102, 0); //Opretter farven der kobler madboderne
+		Color Madboder = new Color(102, 102, 0); 
 		Color SlikogIs = new Color(102,178,255);
 		Color Intellektuel = new Color(181, 83, 142);
 		Color AktivUnderholdning = new Color(255, 243, 131);
