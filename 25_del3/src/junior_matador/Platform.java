@@ -25,7 +25,6 @@ public class Platform {
 		Color Butikker= new Color(245, 249, 119);
 		Color ZooBowl = new Color(0, 102,51);
 		Color Vand = new Color(22, 3, 152);
-		Color Tommefelter = new Color(212, 175, 55);
 		
 
 		fields[0] = new GUI_Start("START", "Modtag: 2 kr", "Du får 2 kr fra banken, hver gang du passerer start",
@@ -57,24 +56,7 @@ public class Platform {
 		fields[21] = new GUI_Chance("?", "Chance", "Prøv Lykken", Color.WHITE, Color.BLACK);
 		fields[22] = new GUI_Street("Vandlandet", " Pris: 5 kr", "Vandlandet", "", Vand, Color.WHITE);
 		fields[23] = new GUI_Street("Strandpromenaden", " Pris: 5 kr", " Strandpromenaden", "", Vand, Color.WHITE);
-//		fields[24] = new GUI_Street("N/A", "", "N/A", "", Tommefelter, Color.white);
-//		fields[25] = new GUI_Street("N/A", "", "N/A", "", Tommefelter, Color.white);
-//		fields[26] = new GUI_Street("N/A", "", "N/A", "", Tommefelter, Color.white);
-//		fields[27] = new GUI_Street("N/A", "", "N/A", "", Tommefelter, Color.white);
-//		fields[28] = new GUI_Street("N/A", "", "N/A", "", Tommefelter, Color.white);
-//		fields[29] = new GUI_Street("N/A", "", "N/A", "", Tommefelter, Color.white);
-//		fields[30] = new GUI_Street("N/A", "", "N/A", "", Tommefelter, Color.white);
-//		fields[31] = new GUI_Street("N/A", "", "N/A", "", Tommefelter, Color.white);
-//		fields[32] = new GUI_Street("N/A", "", "N/A", "", Tommefelter, Color.white);
-//		fields[33] = new GUI_Street("N/A", "", "N/A", "", Tommefelter, Color.white);
-//		fields[34] = new GUI_Street("N/A", "", "N/A", "", Tommefelter, Color.white);
-//		fields[35] = new GUI_Street("N/A", "", "N/A", "", Tommefelter, Color.white);
-//		fields[36] = new GUI_Street("N/A", "", "N/A", "", Tommefelter, Color.white);
-//		fields[37] = new GUI_Street("N/A", "", "N/A", "", Tommefelter, Color.white);
-//		fields[38] = new GUI_Street("N/A", "", "N/A", "", Tommefelter, Color.white);
-//		fields[39] = new GUI_Street("N/A", "", "N/A", "", Tommefelter, Color.white);
 
-		
 		
 		
 	}
