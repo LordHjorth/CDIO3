@@ -13,6 +13,7 @@ public class Spiller {
 	public static GUI gui = new GUI(Platform.fields);
 	public static int antal = gui.getUserInteger("Hvor mange spillere er i", 2, 4);
 
+	
 	public static void opretSpiller() {
 
 		player = new GUI_Player[antal];
@@ -20,7 +21,8 @@ public class Spiller {
 		while (i < antal) {
 			int v = i + 1;
 
-			String navn = JOptionPane.showInputDialog("Dit navn spiller" + v + " : ");
+			String navn =  gui.getUserString("Dit navn spiller" + v + " : ");
+
 			GUI_Car car = new GUI_Car();
 			String farve = gui.getUserSelection("Farven på din bil", "Sort", "Gul", "Rød", "Grøn", "Pink");
 			if (farve == "Sort") {
