@@ -11,7 +11,7 @@ import gui_fields.GUI_Street;
 
 public class Platform {
 
-	public static GUI_Field[] fields = new GUI_Field[40];
+	public static GUI_Field[] fields = new GUI_Field[24];
 	
 	public static void opretSpilleplade () {
 		//Opretter farver der kobler felterne sammen
@@ -57,22 +57,22 @@ public class Platform {
 		fields[21] = new GUI_Chance("?", "Chance", "Prøv Lykken", Color.WHITE, Color.BLACK);
 		fields[22] = new GUI_Street("Vandlandet", " Pris: 5 kr", "Vandlandet", "", Vand, Color.WHITE);
 		fields[23] = new GUI_Street("Strandpromenaden", " Pris: 5 kr", " Strandpromenaden", "", Vand, Color.WHITE);
-		fields[24] = new GUI_Street("N/A", "", "N/A", "", Tommefelter, Color.white);
-		fields[25] = new GUI_Street("N/A", "", "N/A", "", Tommefelter, Color.white);
-		fields[26] = new GUI_Street("N/A", "", "N/A", "", Tommefelter, Color.white);
-		fields[27] = new GUI_Street("N/A", "", "N/A", "", Tommefelter, Color.white);
-		fields[28] = new GUI_Street("N/A", "", "N/A", "", Tommefelter, Color.white);
-		fields[29] = new GUI_Street("N/A", "", "N/A", "", Tommefelter, Color.white);
-		fields[30] = new GUI_Street("N/A", "", "N/A", "", Tommefelter, Color.white);
-		fields[31] = new GUI_Street("N/A", "", "N/A", "", Tommefelter, Color.white);
-		fields[32] = new GUI_Street("N/A", "", "N/A", "", Tommefelter, Color.white);
-		fields[33] = new GUI_Street("N/A", "", "N/A", "", Tommefelter, Color.white);
-		fields[34] = new GUI_Street("N/A", "", "N/A", "", Tommefelter, Color.white);
-		fields[35] = new GUI_Street("N/A", "", "N/A", "", Tommefelter, Color.white);
-		fields[36] = new GUI_Street("N/A", "", "N/A", "", Tommefelter, Color.white);
-		fields[37] = new GUI_Street("N/A", "", "N/A", "", Tommefelter, Color.white);
-		fields[38] = new GUI_Street("N/A", "", "N/A", "", Tommefelter, Color.white);
-		fields[39] = new GUI_Street("N/A", "", "N/A", "", Tommefelter, Color.white);
+//		fields[24] = new GUI_Street("N/A", "", "N/A", "", Tommefelter, Color.white);
+//		fields[25] = new GUI_Street("N/A", "", "N/A", "", Tommefelter, Color.white);
+//		fields[26] = new GUI_Street("N/A", "", "N/A", "", Tommefelter, Color.white);
+//		fields[27] = new GUI_Street("N/A", "", "N/A", "", Tommefelter, Color.white);
+//		fields[28] = new GUI_Street("N/A", "", "N/A", "", Tommefelter, Color.white);
+//		fields[29] = new GUI_Street("N/A", "", "N/A", "", Tommefelter, Color.white);
+//		fields[30] = new GUI_Street("N/A", "", "N/A", "", Tommefelter, Color.white);
+//		fields[31] = new GUI_Street("N/A", "", "N/A", "", Tommefelter, Color.white);
+//		fields[32] = new GUI_Street("N/A", "", "N/A", "", Tommefelter, Color.white);
+//		fields[33] = new GUI_Street("N/A", "", "N/A", "", Tommefelter, Color.white);
+//		fields[34] = new GUI_Street("N/A", "", "N/A", "", Tommefelter, Color.white);
+//		fields[35] = new GUI_Street("N/A", "", "N/A", "", Tommefelter, Color.white);
+//		fields[36] = new GUI_Street("N/A", "", "N/A", "", Tommefelter, Color.white);
+//		fields[37] = new GUI_Street("N/A", "", "N/A", "", Tommefelter, Color.white);
+//		fields[38] = new GUI_Street("N/A", "", "N/A", "", Tommefelter, Color.white);
+//		fields[39] = new GUI_Street("N/A", "", "N/A", "", Tommefelter, Color.white);
 
 		
 		
