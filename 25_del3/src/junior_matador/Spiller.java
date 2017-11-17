@@ -2,18 +2,15 @@ package junior_matador;
 
 import java.awt.Color;
 
-import javax.swing.JOptionPane;
-
 import gui_fields.GUI_Car;
 import gui_fields.GUI_Player;
 import gui_main.GUI;
 
 public class Spiller {
-	private static GUI_Player[] player;
+	public static GUI_Player[] player;
 	public static GUI gui = new GUI(Platform.fields);
 	public static int antal = gui.getUserInteger("Hvor mange spillere er i", 2, 4);
 
-	
 	public static void opretSpiller() {
 
 		player = new GUI_Player[antal];
@@ -21,8 +18,7 @@ public class Spiller {
 		while (i < antal) {
 			int v = i + 1;
 
-			String navn =  gui.getUserString("Dit navn spiller" + v + " : ");
-
+			String navn = gui.getUserString("Dit navn spiller" + v + " : ");
 			GUI_Car car = new GUI_Car();
 			String farve = gui.getUserSelection("Farven på din bil", "Sort", "Gul", "Rød", "Grøn", "Pink");
 			if (farve == "Sort") {
@@ -43,16 +39,14 @@ public class Spiller {
 
 			player[i] = new GUI_Player(navn, 1000, car);
 			gui.addPlayer(player[i]);
+			Platform.fields[0].setCar(player[i], true);
+
 			i++;
 		}
 
 	}
 
 	public static GUI_Player getSpiller(int i) {
-
 		return player[i - 1];
 	}
-
-	
-	
 }
