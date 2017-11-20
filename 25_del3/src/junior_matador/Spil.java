@@ -21,6 +21,9 @@ public class Spil {
 					felt[i] = felt[i] - 24;
 					felt[i] = felt[i] + terning.getTerning();
 					Platform.fields[felt[i]].setCar(Spiller.getSpiller(i), true);
+					Spiller.getSpiller(i).setBalance(Spiller.setNyBalance(2, i));
+					System.out.println(Spiller.getNyBalance());
+					System.out.println(Spiller.getSpiller(i).getBalance());
 
 				}
 				else {

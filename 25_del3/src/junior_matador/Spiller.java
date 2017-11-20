@@ -11,6 +11,7 @@ public class Spiller {
 	public static GUI gui = new GUI(Platform.fields);
 	public static int antal = gui.getUserInteger("Hvor mange spillere er i", 2, 4);
 	private boolean ejer;
+	private static int balance;
 
 	public static void opretSpiller() {
 
@@ -50,8 +51,21 @@ public class Spiller {
 	public static GUI_Player getSpiller(int i) {
 		return player[i - 1];
 	}
-	
+
 	public static void dipserGrund() {
+
+	}
+
+	public static int setNyBalance(int ekstraBalance, int i) {
+
+		return ekstraBalance + Spiller.getSpiller(i).getBalance();
 		
+
+	}
+
+	public static int getNyBalance() {
+
+		return balance;
+
 	}
 }
