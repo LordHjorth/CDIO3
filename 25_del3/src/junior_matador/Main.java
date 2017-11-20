@@ -7,8 +7,8 @@ public class Main {
 
 	Platform.opretSpilleplade();
 	Spiller.opretSpiller();	
+	Chancekort.getChancekort();
 	Spil.opretSpil();
-	
 	
 
 	}

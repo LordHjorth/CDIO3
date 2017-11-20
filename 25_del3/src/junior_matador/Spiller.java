@@ -10,11 +10,10 @@ public class Spiller {
 	public static GUI_Player[] player;
 	public static GUI gui = new GUI(Platform.fields);
 	public static int antal = gui.getUserInteger("Hvor mange spillere er i", 2, 4);
-	private boolean ejer;
 	private static int balance;
 
 	public static void opretSpiller() {
-
+	
 		player = new GUI_Player[antal];
 		int i = 0;
 		while (i < antal) {
@@ -52,9 +51,6 @@ public class Spiller {
 		return player[i - 1];
 	}
 
-	public static void dipserGrund() {
-
-	}
 
 	public static void setNyBalance(int i, int beløb) {
 		
