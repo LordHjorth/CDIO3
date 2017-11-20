@@ -14,11 +14,21 @@ public class Spil {
 			while (Spiller.gui.getUserButtonPressed("kast terningen " + Spiller.player[i-1].getName(), "Kast") == "Kast") {
 				terning.random();
 				Spiller.gui.setDice(terning.getTerning(), 2, 2, terning.getTerning(), 2, 2);
+				
+				if (felt[i] + terning.getTerning() >= 24) {
+					
+					Platform.fields[felt[i]].setCar(Spiller.getSpiller(i), false);
+					felt[i] = felt[i] - 24;
+					felt[i] = felt[i] + terning.getTerning();
+					Platform.fields[felt[i]].setCar(Spiller.getSpiller(i), true);
 
-				Platform.fields[felt[i]].setCar(Spiller.getSpiller(i), false);
-				felt[i] = felt[i] + terning.getTerning();
-				Platform.fields[felt[i]].setCar(Spiller.getSpiller(i), true);
+				}
+				else {
+					Platform.fields[felt[i]].setCar(Spiller.getSpiller(i), false);
+					felt[i] = felt[i] + terning.getTerning();
+					Platform.fields[felt[i]].setCar(Spiller.getSpiller(i), true);
 
+				}
 				i++;
 				if (i > Spiller.antal) {
 					i = 1;
