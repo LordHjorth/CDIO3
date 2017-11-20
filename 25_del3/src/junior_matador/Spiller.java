@@ -39,7 +39,7 @@ public class Spiller {
 				car.setPrimaryColor(Color.MAGENTA);
 			}
 
-			player[i] = new GUI_Player(navn, 1000, car);
+			player[i] = new GUI_Player(navn, 20, car);
 			gui.addPlayer(player[i]);
 			Platform.fields[0].setCar(player[i], true);
 
@@ -56,16 +56,18 @@ public class Spiller {
 
 	}
 
-	public static int setNyBalance(int ekstraBalance, int i) {
+	public static void setNyBalance(int i, int beløb) {
+		
+		Spiller.getSpiller(i).setBalance(Spiller.getSpiller(i).getBalance()+beløb);
 
-		return ekstraBalance + Spiller.getSpiller(i).getBalance();
+		
 		
 
 	}
-
-	public static int getNyBalance() {
-
-		return balance;
-
-	}
+//
+//	public static int getNyBalance() {
+//
+//		return balance;
+//
+//	}
 }
