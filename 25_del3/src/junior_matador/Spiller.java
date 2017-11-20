@@ -10,6 +10,7 @@ public class Spiller {
 	public static GUI_Player[] player;
 	public static GUI gui = new GUI(Platform.fields);
 	public static int antal = gui.getUserInteger("Hvor mange spillere er i", 2, 4);
+	private boolean ejer;
 
 	public static void opretSpiller() {
 
@@ -48,5 +49,9 @@ public class Spiller {
 
 	public static GUI_Player getSpiller(int i) {
 		return player[i - 1];
+	}
+	
+	public static void dipserGrund() {
+		
 	}
 }
