@@ -30,6 +30,7 @@ public class Terning {
 		public int getTerning() {
 			return terning;
 		}
+		
 
 	
 	

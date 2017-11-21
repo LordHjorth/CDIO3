@@ -21,9 +21,12 @@ public class Spiller {
 
 			String navn = gui.getUserString("Dit navn spiller" + v + " : ");
 			GUI_Car car = new GUI_Car();
-			String farve = gui.getUserSelection("Farven på din bil", "Sort", "Gul", "Rød", "Grøn", "Pink");
+			String farve = gui.getUserSelection("Farven på din bil", "Sort","Blå", "Gul", "Rød", "Grøn", "Pink");
 			if (farve == "Sort") {
 				car.setPrimaryColor(Color.BLACK);
+			}
+			if (farve == "Blå") {
+				car.setPrimaryColor(Color.blue);
 			}
 			if (farve == "Gul") {
 				car.setPrimaryColor(Color.yellow);
@@ -56,14 +59,6 @@ public class Spiller {
 		
 		Spiller.getSpiller(i).setBalance(Spiller.getSpiller(i).getBalance()+beløb);
 
-		
-		
-
 	}
-//
-//	public static int getNyBalance() {
-//
-//		return balance;
-//
-//	}
+
 }

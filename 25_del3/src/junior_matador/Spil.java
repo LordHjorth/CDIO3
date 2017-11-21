@@ -3,16 +3,19 @@ package junior_matador;
 public class Spil {
 
 	private static int runde = 1;
-	
+	private static int[] felt = new int[5];
+
 	public static int getRunde() {
 		return runde;
 	}
+
+
+	
 	public static void opretSpil() {
 
 		Terning terning = new Terning();
 
-		int[] felt = new int[5];
-		
+
 		while (true) {
 			felt[runde] = 0;
 			while (Spiller.gui.getUserButtonPressed("kast terningen " + Spiller.player[runde - 1].getName(),
@@ -22,20 +25,25 @@ public class Spil {
 
 				if (felt[runde] + terning.getTerning() >= 24) {
 
-					Platform.fields[felt[runde]].setCar(Spiller.getSpiller(runde), false);
+					Bil.setCarFalse();
 					felt[runde] = felt[runde] - 24;
 					felt[runde] = felt[runde] + terning.getTerning();
-					Platform.fields[felt[runde]].setCar(Spiller.getSpiller(runde), true);
+					Bil.setCarTrue();
 					Spiller.getSpiller(runde).setBalance(Spiller.getSpiller(runde).getBalance() + 2);
 
 				} else {
-					Platform.fields[felt[runde]].setCar(Spiller.getSpiller(runde), false);
+					Bil.setCarFalse();
 					felt[runde] = felt[runde] + terning.getTerning();
-					Platform.fields[felt[runde]].setCar(Spiller.getSpiller(runde), true);
+					Bil.setCarTrue();
 
 				}
-				switch (felt[runde]+1) {
 
+				Spiller.gui.displayChanceCard(Platform.fields[getFelt()].getDescription());
+				Chancekort hej = new Chancekort();
+				hej = Chancekort.getChancekort();
+				
+				switch (felt[runde] + 1) {
+				
 				case 1:
 					break;
 				case 2:
@@ -44,14 +52,8 @@ public class Spil {
 				case 3:
 					Spiller.setNyBalance(runde, -1);
 					break;
-				case 4://chance felt
-					Chancekort hej = new Chancekort();
-					hej = Chancekort.getChancekort();
-					Spiller.gui.displayChanceCard(hej.tekst);
-					Spiller.setNyBalance(runde, hej.beløb);
-					Platform.fields[felt[runde]].setCar(Spiller.getSpiller(runde), false);
-					Platform.fields[felt[runde]+hej.felt].setCar(Spiller.getSpiller(runde), true);
-					
+				case 4:// chance felt
+					hej.konsekvens();
 					break;
 				case 5:
 					Spiller.setNyBalance(runde, -1);
@@ -60,7 +62,7 @@ public class Spil {
 					Spiller.setNyBalance(runde, -1);
 					break;
 				case 7:
-					//jail 
+					// jail
 					break;
 				case 8:
 					Spiller.setNyBalance(runde, -2);
@@ -68,14 +70,8 @@ public class Spil {
 				case 9:
 					Spiller.setNyBalance(runde, -2);
 					break;
-				case 10:	//chance
-					Chancekort hej1 = new Chancekort();
-					hej = Chancekort.getChancekort();
-					Spiller.gui.displayChanceCard(hej1.tekst);
-					Spiller.setNyBalance(runde, hej1.beløb);
-					Platform.fields[felt[runde]].setCar(Spiller.getSpiller(runde), false);
-					Platform.fields[felt[runde]+hej1.felt].setCar(Spiller.getSpiller(runde), true);
-			
+				case 10: // chance
+					hej.konsekvens();
 					break;
 				case 11:
 					Spiller.setNyBalance(runde, -2);
@@ -84,7 +80,7 @@ public class Spil {
 					Spiller.setNyBalance(runde, -2);
 					break;
 				case 13:
-//					free parking
+					// free parking
 					break;
 				case 14:
 					Spiller.setNyBalance(runde, 3);
@@ -93,14 +89,8 @@ public class Spil {
 					Spiller.setNyBalance(runde, -3);
 					break;
 				case 16:
-//					chance kort
-					Chancekort hej2 = new Chancekort();
-					hej = Chancekort.getChancekort();
-					Spiller.gui.displayChanceCard(hej2.tekst);
-					Spiller.setNyBalance(runde, hej2.beløb);
-					Platform.fields[felt[runde]].setCar(Spiller.getSpiller(runde), false);
-					Platform.fields[felt[runde]+hej2.felt].setCar(Spiller.getSpiller(runde), true);
-					
+					// chance kort
+					hej.konsekvens();
 					break;
 				case 17:
 					Spiller.setNyBalance(runde, -3);
@@ -118,14 +108,10 @@ public class Spil {
 					Spiller.setNyBalance(runde, -4);
 					break;
 				case 22:
-//					chance
-					Chancekort hej3 = new Chancekort();
-					hej = Chancekort.getChancekort();
-					Spiller.gui.displayChanceCard(hej3.tekst);
-					Spiller.setNyBalance(runde, hej3.beløb);
-					Platform.fields[felt[runde]].setCar(Spiller.getSpiller(runde), false);
-					Platform.fields[felt[runde]+hej3.felt].setCar(Spiller.getSpiller(runde), true);
-					
+					// chance
+
+					hej.konsekvens();
+
 					break;
 				case 23:
 					Spiller.setNyBalance(runde, -5);
@@ -135,15 +121,28 @@ public class Spil {
 					break;
 
 				}
+
 				runde++;
 				if (runde > Spiller.antal) {
 					runde = 1;
 				}
 
-				
 			}
 
 		}
+		
 
 	}
+	public static int getFelt(){
+		
+		return felt[runde];
+		
+	}
+	
+	public static void setFelt(int i) {
+		felt[runde] = felt[runde] + i;
+	}
+	
+	
+
 }
