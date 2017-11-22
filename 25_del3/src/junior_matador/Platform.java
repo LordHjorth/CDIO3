@@ -56,8 +56,6 @@ public class Platform {
 		fields[21] = new GUI_Chance("?", "Chance", "Prøv Lykken", Color.WHITE, Color.BLACK);
 		fields[22] = new GUI_Street("Vandlandet", " Pris: 5 kr", "Vandlandet", "", Vand, Color.WHITE);
 		fields[23] = new GUI_Street("Strandpromenaden", " Pris: 5 kr", " Strandpromenaden", "", Vand, Color.WHITE);
-
-		
 		
 	}
 	
