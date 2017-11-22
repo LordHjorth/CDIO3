@@ -41,8 +41,21 @@ public class Spiller {
 			if (farve == "Pink") {
 				car.setPrimaryColor(Color.MAGENTA);
 			}
+			
+			int kapital = 0;
+			
+			if (antal == 2) {
+				kapital = 20;
+			}
+			if (antal == 3) {
+				kapital = 18;
+			}
+			if (antal == 4) {
+				kapital = 16;
+			}
+			System.out.println(kapital);
 
-			player[i] = new GUI_Player(navn, 20, car);
+			player[i] = new GUI_Player(navn, kapital, car);
 			gui.addPlayer(player[i]);
 			Platform.fields[0].setCar(player[i], true);
 
