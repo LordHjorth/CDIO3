@@ -37,17 +37,17 @@ public class Chancekort {
 
 	public void konsekvens() {
 		Spiller.gui.showMessage("Du er landet på et Chancekort");
-		Chancekort n = Chancekort.getChancekort();
-		Spiller.gui.displayChanceCard(n.tekst);
-		Spiller.setNyBalance(Spil.getRunde(), n.beløb);
+		Chancekort kort = Chancekort.getChancekort();
+		Spiller.gui.displayChanceCard(kort.tekst);
+		Spiller.setNyBalance(Spil.getRunde(), kort.beløb);
 
-		if (n == chancekort[0]) {
+		if (kort == chancekort[0]) {
 
 			Bil.setCarFalse();
 			Spil.setFelt(Spil.getFelt() * -1);
 			Bil.setCarTrue();
 
-		} else if (n == chancekort[4]) {
+		} else if (kort == chancekort[4]) {
 			
 			Bil.setCarFalse();
 			Spil.setFelt(23 - Spil.getFelt());
@@ -56,10 +56,10 @@ public class Chancekort {
 		} else {
 			
 			Bil.setCarFalse();
-			if ((Spil.getFelt() + n.felt) > 24) {
+			if ((Spil.getFelt() + kort.felt) > 24) {
 				Spil.setFelt(-24);
 			}
-			Spil.setFelt(n.felt);
+			Spil.setFelt(kort.felt);
 			Bil.setCarTrue();
 			
 		}
