@@ -7,14 +7,15 @@ import gui_fields.GUI_Player;
 import gui_main.GUI;
 
 public class Spiller {
-	public static GUI_Player[] player;
+	
 	public static GUI gui = new GUI(Platform.fields);
 	public static int antal = gui.getUserInteger("Hvor mange spillere er i", 2, 4);
-	private static int balance;
+	public static GUI_Player[] player = new GUI_Player[antal];
+	
 
 	public static void opretSpiller() {
 	
-		player = new GUI_Player[antal];
+		
 		int i = 0;
 		while (i < antal) {
 			int v = i + 1;
@@ -48,6 +49,12 @@ public class Spiller {
 			i++;
 		}
 
+	}
+	
+	public static void fjernSpiller(int i) {
+		
+		//fjerner spiller fra spillet
+		
 	}
 
 	public static GUI_Player getSpiller(int i) {
