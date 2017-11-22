@@ -6,8 +6,9 @@ import gui_main.GUI;
 public class Spiller {
 
 	public static GUI gui = new GUI(Platform.fields);
-	public static int antal = gui.getUserInteger("Hvor mange spillere er i", 2, 4);
+	private static int antal = gui.getUserInteger("Hvor mange spillere er i", 2, 4);
 	public static GUI_Player[] player = new GUI_Player[antal];
+	
 
 	public static void opretSpiller() {
 
@@ -25,6 +26,9 @@ public class Spiller {
 			spillerNummer++;
 		}
 
+	}
+	public static int getAntal() {
+		return antal;
 	}
 
 	public static GUI_Player getSpiller(int i) {
