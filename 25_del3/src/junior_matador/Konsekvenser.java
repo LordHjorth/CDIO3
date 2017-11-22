@@ -55,7 +55,7 @@ public class Konsekvenser {
 		case 6:
 			Spiller.setNyBalance(Spil.getRunde(), -1);
 			break;
-		case 7:// jail
+		case 7:// jail på besøg
 			break;
 		case 8:
 			Spiller.setNyBalance(Spil.getRunde(), -2);
@@ -90,7 +90,9 @@ public class Konsekvenser {
 			Spiller.setNyBalance(Spil.getRunde(), -3);
 			break;
 		case 19:
-			Spiller.setNyBalance(Spil.getRunde(), -3);
+			Bil.setCarFalse();
+			Spil.setFelt(6 - Spil.getFelt());
+			Bil.setCarTrue();         //Du ryger i fængsel
 			break;
 		case 20:
 			Spiller.setNyBalance(Spil.getRunde(), -4);
