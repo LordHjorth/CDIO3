@@ -11,9 +11,8 @@ public class Terning {
 		private int terning;
 		
 
-		public Terning(int terning1) {
-			this.terning = terning1;
-			
+		public Terning(int terning) {
+			this.terning = terning;	
 		}
 		
 		public Terning () {
@@ -24,8 +23,6 @@ public class Terning {
 			terning = random.nextInt(6) + 1;
 			
 		}
-
-		
 
 		public int getTerning() {
 			return terning;

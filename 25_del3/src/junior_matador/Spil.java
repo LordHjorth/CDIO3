@@ -40,7 +40,7 @@ public class Spil {
 				}
 
 				Spiller.gui.displayChanceCard(Platform.fields[getFelt()].getDescription());
-				konsekvensAfFelter();
+				Konsekvenser.konsekvensAfFelter();
 				findVinder();
 
 				runde++;
@@ -82,84 +82,7 @@ public class Spil {
 		}
 	}
 	
-	public static void konsekvensAfFelter() {
-		Chancekort chancekort = new Chancekort();
-		chancekort = Chancekort.getChancekort();
-		
-		switch (felt[runde] + 1) {
-		
-		case 1:
-			break;
-		case 2:
-			Spiller.setNyBalance(runde, -1);
-			break;
-		case 3:
-			Spiller.setNyBalance(runde, -1);
-			break;
-		case 4:// chance felt
-			chancekort.konsekvens();
-			break;
-		case 5:
-			Spiller.setNyBalance(runde, -1);
-			break;
-		case 6:
-			Spiller.setNyBalance(runde, -1);
-			break;
-		case 7:// jail
-			break;
-		case 8:
-			Spiller.setNyBalance(runde, -2);
-			break;
-		case 9:
-			Spiller.setNyBalance(runde, -2);
-			break;
-		case 10: // chance
-			chancekort.konsekvens();
-			break;
-		case 11:
-			Spiller.setNyBalance(runde, -2);
-			break;
-		case 12:
-			Spiller.setNyBalance(runde, -2);
-			break;
-		case 13:// free parking
-			break;
-		case 14:
-			Spiller.setNyBalance(runde, 3);
-			break;
-		case 15:
-			Spiller.setNyBalance(runde, -3);
-			break;
-		case 16:// chance kort
-			chancekort.konsekvens();
-			break;
-		case 17:
-			Spiller.setNyBalance(runde, -3);
-			break;
-		case 18:
-			Spiller.setNyBalance(runde, -3);
-			break;
-		case 19:
-			Spiller.setNyBalance(runde, -3);
-			break;
-		case 20:
-			Spiller.setNyBalance(runde, -4);
-			break;
-		case 21:
-			Spiller.setNyBalance(runde, -4);
-			break;
-		case 22:// chance
-			chancekort.konsekvens();
-			break;
-		case 23:
-			Spiller.setNyBalance(runde, -5);
-			break;
-		case 24:
-			Spiller.setNyBalance(runde, -5);
-			break;
-
-		}
-	}
+	
 	
 	
 
