@@ -42,18 +42,17 @@ public class Spiller {
 				car.setPrimaryColor(Color.MAGENTA);
 			}
 			
-			int kapital = 0;
+			int kapital = 2;
 			
-			if (antal == 2) {
-				kapital = 20;
-			}
-			if (antal == 3) {
-				kapital = 18;
-			}
-			if (antal == 4) {
-				kapital = 16;
-			}
-			System.out.println(kapital);
+//			if (antal == 2) {
+//				kapital = 20;
+//			}
+//			if (antal == 3) {
+//				kapital = 18;
+//			}
+//			if (antal == 4) {
+//				kapital = 16;
+//			}
 
 			player[i] = new GUI_Player(navn, kapital, car);
 			gui.addPlayer(player[i]);

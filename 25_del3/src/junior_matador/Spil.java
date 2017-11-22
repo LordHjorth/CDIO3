@@ -41,7 +41,7 @@ public class Spil {
 
 				Spiller.gui.displayChanceCard(Platform.fields[getFelt()].getDescription());
 				konsekvensAfFelter();
-				
+				findVinder();
 
 				runde++;
 				if (runde > Spiller.antal) {
@@ -68,7 +68,17 @@ public class Spil {
 	
 	public static void findVinder() {
 		if (Spiller.getSpiller(runde).getBalance() < 0) {
-			Spiller.gui.showMessage(Spiller.getSpiller(runde).getName().toUpperCase() + "ER UDE AF SPILLET");
+			String vinder = Spiller.getSpiller(Spiller.antal-1).getName();
+			int vinderVærdi = 0;
+			for (int i = 1; i<Spiller.antal; i++) {
+				
+				if (Spiller.getSpiller(i).getBalance() > vinderVærdi) {
+					vinderVærdi = Spiller.getSpiller(i).getBalance();
+					vinder = Spiller.getSpiller(i).getName();
+				}
+			}
+			Spiller.gui.showMessage(vinder.toUpperCase() + " HAR VUNDET");
+			System.exit(0);
 		}
 	}
 	
