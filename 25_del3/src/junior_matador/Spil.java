@@ -6,9 +6,7 @@ public class Spil {
 	private static int[] felt = new int[5];
 	private static boolean spilIgang = true;
 
-	public static int getRunde() {
-		return runde;
-	}
+	
 
 
 	
@@ -55,11 +53,12 @@ public class Spil {
 
 	}
 	
+	public static int getRunde() {
+		return runde;
+	}
 	
 	public static int getFelt(){
-		
 		return felt[runde];
-		
 	}
 	
 	public static void setFelt(int i) {
