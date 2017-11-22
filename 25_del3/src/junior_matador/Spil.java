@@ -65,7 +65,7 @@ public class Spil {
 	
 	public static void findVinder() {
 		if (Spiller.getSpiller(runde).getBalance() < 0) {
-			String vinder = Spiller.getSpiller(Spiller.getAntal()-1).getName();
+			String vinder = Spiller.getSpiller(Spiller.getAntal()).getName();
 			int vinderVærdi = 0;
 			for (int i = 1; i<Spiller.getAntal(); i++) {
 				
