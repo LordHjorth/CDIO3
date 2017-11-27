@@ -58,6 +58,9 @@ public class Platform {
 		fields[23] = new GUI_Street("Strandpromenaden", " Pris: 5 kr", " Strandpromenaden", "", Vand, Color.WHITE);
 		
 	}
+	public String toString(int i) {
+		return "Title: " + fields[i].getTitle() + "Subtext: " + fields[i].getSubText() + "Description: " + fields[i].getDescription();
+	}
 	
 	
 }
