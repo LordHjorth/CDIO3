@@ -10,12 +10,10 @@ import gui_fields.GUI_Start;
 import gui_fields.GUI_Street;
 
 public class BraetController {
-
-	public GUI_Field[] fields = new GUI_Field[24];
-
 	
-	public void opretBreat() {
-		
+	
+	public void opretBraet() {
+	    GUI_Field[] fields = new GUI_Field[24];
 		Color Start = new Color(76, 153, 0);
 		Color Madboder = new Color(102, 102, 0); 
 		Color SlikogIs = new Color(102,178,255);
@@ -26,7 +24,7 @@ public class BraetController {
 		Color ZooBowl = new Color(0, 102,51);
 		Color Vand = new Color(22, 3, 152);
 		
-		GUI_Field[] fields = new GUI_Field[24];
+		
 		fields[0] = new GUI_Start("START", "Modtag: 2 kr", "Du får 2 kr fra banken, hver gang du passerer start",
 				Start, Color.black);
 		fields[1] = new GUI_Street("Burgerbaren","Pris:1 kr","Burgerbaren","",Madboder,Color.BLACK);

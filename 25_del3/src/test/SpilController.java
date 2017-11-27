@@ -6,13 +6,14 @@ public class SpilController {
 	private final int START_KAPITAL = 31;
 	private GUIController guiController;
 	private SpillerController spillerController;
-	private BraetController braetController;
+	private BraetController braetController =new BraetController(); 
 	private NySpiller[] spillere;
-
 	public void playGame() {
+
+		this.braetController.opretBraet(); 
 		this.guiController = new GUIController();
 		this.spillerController = new SpillerController();
-		this.braetController = new BraetController();
+		
 		initializeGame();
 		gameloop();
 		

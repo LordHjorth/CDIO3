@@ -13,7 +13,7 @@ public class Platform {
 
 	public static GUI_Field[] fields = new GUI_Field[24];
 	
-	public static void opretSpilleplade () {
+	public void opretSpilleplade () {
 		//Opretter farver der kobler felterne sammen
 		 
 		Color Start = new Color(76, 153, 0);
