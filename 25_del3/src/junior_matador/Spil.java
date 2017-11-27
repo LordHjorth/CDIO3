@@ -18,7 +18,7 @@ public class Spil {
 			while (true) {
 				Spiller.gui.getUserButtonPressed("kast terningen " + Spiller.player[runde - 1].getName(), "Kast");
 				terning.random();
-				Spiller.gui.setDice(terning.getTerning(), 2, 2, terning.getTerning(), 2, 2);
+				Spiller.gui.setDie(terning.getTerning());
 
 				if (felt[runde] + terning.getTerning() >= 24) {
 
@@ -66,8 +66,8 @@ public class Spil {
 	
 	public static void findVinder() {
 		if (Spiller.getSpiller(runde).getBalance() < 0) {
-			String vinder = Spiller.getSpiller(Spiller.getAntal()-1).getName();
-			int vinderVærdi = 0;
+			String vinder = Spiller.getSpiller(1).getName();
+			int vinderVærdi = Spiller.getSpiller(1).getBalance();
 			for (int i = 1; i<Spiller.getAntal(); i++) {
 				
 				if (Spiller.getSpiller(i).getBalance() > vinderVærdi) {

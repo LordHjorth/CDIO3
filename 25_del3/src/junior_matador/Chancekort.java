@@ -16,8 +16,6 @@ public class Chancekort {
 		this.felt = felt;
 	}
 
-	public Chancekort() {
-	}
 
 	public static Chancekort getChancekort() {
 		Random random = new Random();

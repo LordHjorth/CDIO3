@@ -10,7 +10,6 @@ public class Main {
 	Chancekort.getChancekort();
 	Spil.opretSpil();
 	
-
 	}
 
 }
