@@ -13,9 +13,10 @@ public class Spil {
 	public static void opretSpil() {
 
 		while (spilIgang == true) {
+			
 			felt[runde] = 0;
-			while (Spiller.gui.getUserButtonPressed("kast terningen " + Spiller.player[runde - 1].getName(), "Kast") == "Kast") {
-				
+			while (true) {
+				Spiller.gui.getUserButtonPressed("kast terningen " + Spiller.player[runde - 1].getName(), "Kast");
 				terning.random();
 				Spiller.gui.setDice(terning.getTerning(), 2, 2, terning.getTerning(), 2, 2);
 
