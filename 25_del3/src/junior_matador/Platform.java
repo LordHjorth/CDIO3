@@ -11,7 +11,7 @@ import gui_fields.GUI_Street;
 
 public class Platform {
 
-	public static GUI_Field[] fields = new GUI_Field[24];
+	public static GUI_Field[] fields = new GUI_Field[24]; //Opretter en ny array for felterne. 
 	
 	public static void opretSpilleplade () {
 		//Opretter farver der kobler felterne sammen
