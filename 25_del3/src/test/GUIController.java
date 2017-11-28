@@ -20,6 +20,7 @@ public class GUIController {
 		this.gui = new GUI(bræt.opretBreat());
 
 	}
+	
 
 	public int setDice() {
 		gui.getUserButtonPressed("Kast Terning", "Kast");

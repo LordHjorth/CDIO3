@@ -1,6 +1,6 @@
 package test;
 
-public class Konto {
+public class Konto{
 
 	private int kapital = 0;
 

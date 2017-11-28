@@ -1,7 +1,7 @@
 package test;
 
 
-public class NySpiller {
+public class NySpiller{
 	
 	private Konto konto;
 	private String navn;
