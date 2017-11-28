@@ -32,12 +32,10 @@ public class SpilController {
 
 			if (spillere[i].getPlacering() + a >= 24) {
 				spillere[i].setPlacering(spillere[i].getPlacering() + a - 24);
-				konsekvensAfFelter(i);
 
 			} else {
 
 				spillere[i].setPlacering(spillere[i].getPlacering() + a);
-				konsekvensAfFelter(i);
 			}
 
 			konsekvensAfFelter(i);
@@ -78,96 +76,114 @@ public class SpilController {
 
 	public void konsekvensAfFelter(int i) {
 
-		switch (spillere[i].getPlacering()) {
+		switch (spillere[i].getPlacering()-1) {
 
 		case 1:
 			break;
 		case 2:
-			spillere[i].getKonto().setKapital(spillere[i].getKonto().getKapital() + 2);
-			System.out.println(spillere[i].getKonto().getKapital());
+			spillere[i].getKonto().setKapital(spillere[i].getKonto().getKapital() -1);
+			System.out.println("Spiller navn: "+spillere[i].getNavn()+"Spiller kapital: "+spillere[i].getKonto().getKapital()+"Spiller placering: "+spillere[i].getPlacering());
 			break;
 		case 3:
-			spillere[i].getKonto().setKapital(spillere[i].getKonto().getKapital() + 2);
-			System.out.println(spillere[i].getKonto().getKapital());
+			spillere[i].getKonto().setKapital(spillere[i].getKonto().getKapital() -1);
+			System.out.println("Spiller navn: "+spillere[i].getNavn()+"Spiller kapital: "+spillere[i].getKonto().getKapital()+"Spiller placering: "+spillere[i].getPlacering());
+
 			break;
 		case 4:// chance felt
-			spillere[i].getKonto().setKapital(spillere[i].getKonto().getKapital() + 2);
-			System.out.println(spillere[i].getKonto().getKapital());
+			spillere[i].getKonto().setKapital(spillere[i].getKonto().getKapital() + 0);
+			System.out.println("Spiller navn: "+spillere[i].getNavn()+"Spiller kapital: "+spillere[i].getKonto().getKapital()+"Spiller placering: "+spillere[i].getPlacering());
+
 			break;
 		case 5:
-			spillere[i].getKonto().setKapital(spillere[i].getKonto().getKapital() + 2);
-			System.out.println(spillere[i].getKonto().getKapital());
+			spillere[i].getKonto().setKapital(spillere[i].getKonto().getKapital() -1);
+			System.out.println("Spiller navn: "+spillere[i].getNavn()+"Spiller kapital: "+spillere[i].getKonto().getKapital()+"Spiller placering: "+spillere[i].getPlacering());
+
 			break;
 		case 6:
-			spillere[i].getKonto().setKapital(spillere[i].getKonto().getKapital() + 2);
-			System.out.println(spillere[i].getKonto().getKapital());
+			spillere[i].getKonto().setKapital(spillere[i].getKonto().getKapital() -1);
+			System.out.println("Spiller navn: "+spillere[i].getNavn()+"Spiller kapital: "+spillere[i].getKonto().getKapital()+"Spiller placering: "+spillere[i].getPlacering());
+
 			break;
 		case 7:// jail på besøg
 			break;
 		case 8:
-			// Spiller.setNyBalance(Spil.getRunde(), -2);
+			spillere[i].getKonto().setKapital(spillere[i].getKonto().getKapital() -2);
+			System.out.println("Spiller navn: "+spillere[i].getNavn()+"Spiller kapital: "+spillere[i].getKonto().getKapital()+"Spiller placering: "+spillere[i].getPlacering());
 			break;
 		case 9:
-			// Spiller.setNyBalance(Spil.getRunde(), -2);
+			spillere[i].getKonto().setKapital(spillere[i].getKonto().getKapital() -2);
+			System.out.println("Spiller navn: "+spillere[i].getNavn()+"Spiller kapital: "+spillere[i].getKonto().getKapital()+"Spiller placering: "+spillere[i].getPlacering());
+
 			break;
 		case 10: // chance
-			spillere[i].getKonto().setKapital(spillere[i].getKonto().getKapital() + 2);
-			System.out.println(spillere[i].getKonto().getKapital());
+			spillere[i].getKonto().setKapital(spillere[i].getKonto().getKapital() +0);
+			System.out.println("Spiller navn: "+spillere[i].getNavn()+"Spiller kapital: "+spillere[i].getKonto().getKapital()+"Spiller placering: "+spillere[i].getPlacering());
+
 			break;
 		case 11:
-			spillere[i].getKonto().setKapital(spillere[i].getKonto().getKapital() + 2);
-			System.out.println(spillere[i].getKonto().getKapital());
+			spillere[i].getKonto().setKapital(spillere[i].getKonto().getKapital() -2);
+			System.out.println("Spiller navn: "+spillere[i].getNavn()+"Spiller kapital: "+spillere[i].getKonto().getKapital()+"Spiller placering: "+spillere[i].getPlacering());
+
 			break;
 		case 12:
-			spillere[i].getKonto().setKapital(spillere[i].getKonto().getKapital() + 2);
-			System.out.println(spillere[i].getKonto().getKapital());
+			spillere[i].getKonto().setKapital(spillere[i].getKonto().getKapital() -2);
+			System.out.println("Spiller navn: "+spillere[i].getNavn()+"Spiller kapital: "+spillere[i].getKonto().getKapital()+"Spiller placering: "+spillere[i].getPlacering());
+
 			break;
 		case 13:// free parking
 			break;
 		case 14:
-			spillere[i].getKonto().setKapital(spillere[i].getKonto().getKapital() + 2);
-			System.out.println(spillere[i].getKonto().getKapital());
+			spillere[i].getKonto().setKapital(spillere[i].getKonto().getKapital() -3);
+			System.out.println("Spiller navn: "+spillere[i].getNavn()+"Spiller kapital: "+spillere[i].getKonto().getKapital()+"Spiller placering: "+spillere[i].getPlacering());
+
 			break;
 		case 15:
-			spillere[i].getKonto().setKapital(spillere[i].getKonto().getKapital() + 2);
-			System.out.println(spillere[i].getKonto().getKapital());
+			spillere[i].getKonto().setKapital(spillere[i].getKonto().getKapital() -3);
+			System.out.println("Spiller navn: "+spillere[i].getNavn()+"Spiller kapital: "+spillere[i].getKonto().getKapital()+"Spiller placering: "+spillere[i].getPlacering());
+
 			break;
 		case 16:// chance kort
-			spillere[i].getKonto().setKapital(spillere[i].getKonto().getKapital() + 2);
-			System.out.println(spillere[i].getKonto().getKapital());
+			spillere[i].getKonto().setKapital(spillere[i].getKonto().getKapital() + 0);
+			System.out.println("Spiller navn: "+spillere[i].getNavn()+"Spiller kapital: "+spillere[i].getKonto().getKapital()+"Spiller placering: "+spillere[i].getPlacering());
+
 			break;
 		case 17:
-			spillere[i].getKonto().setKapital(spillere[i].getKonto().getKapital() + 2);
-			System.out.println(spillere[i].getKonto().getKapital());
+			spillere[i].getKonto().setKapital(spillere[i].getKonto().getKapital() -3);
+			System.out.println("Spiller navn: "+spillere[i].getNavn()+"Spiller kapital: "+spillere[i].getKonto().getKapital()+"Spiller placering: "+spillere[i].getPlacering());
+
 			break;
 		case 18:
-			spillere[i].getKonto().setKapital(spillere[i].getKonto().getKapital() + 2);
-			System.out.println(spillere[i].getKonto().getKapital());
+			spillere[i].getKonto().setKapital(spillere[i].getKonto().getKapital() -3);
+			System.out.println("Spiller navn: "+spillere[i].getNavn()+"Spiller kapital: "+spillere[i].getKonto().getKapital()+"Spiller placering: "+spillere[i].getPlacering());
+
 			break;
 		case 19:
-			// Bil.setCarFalse();
-			// Spil.setFelt(6 - Spil.getFelt());
-			// Bil.setCarTrue(); // Du ryger i fængsel
+			//Go to jail
 			break;
 		case 20:
-			spillere[i].getKonto().setKapital(spillere[i].getKonto().getKapital() + 2);
-			System.out.println(spillere[i].getKonto().getKapital());
+			spillere[i].getKonto().setKapital(spillere[i].getKonto().getKapital() -4);
+			System.out.println("Spiller navn: "+spillere[i].getNavn()+"Spiller kapital: "+spillere[i].getKonto().getKapital()+"Spiller placering: "+spillere[i].getPlacering());
+
 			break;
 		case 21:
-			spillere[i].getKonto().setKapital(spillere[i].getKonto().getKapital() + 2);
-			System.out.println(spillere[i].getKonto().getKapital());
+			spillere[i].getKonto().setKapital(spillere[i].getKonto().getKapital() -4);
+			System.out.println("Spiller navn: "+spillere[i].getNavn()+"Spiller kapital: "+spillere[i].getKonto().getKapital()+"Spiller placering: "+spillere[i].getPlacering());
+
 			break;
 		case 22:// chance
-			spillere[i].getKonto().setKapital(spillere[i].getKonto().getKapital() + 2);
-			System.out.println(spillere[i].getKonto().getKapital());
+			spillere[i].getKonto().setKapital(spillere[i].getKonto().getKapital() +0);
+			System.out.println("Spiller navn: "+spillere[i].getNavn()+"Spiller kapital: "+spillere[i].getKonto().getKapital()+"Spiller placering: "+spillere[i].getPlacering());
+
 			break;
 		case 23:
-			spillere[i].getKonto().setKapital(spillere[i].getKonto().getKapital() + 2);
-			System.out.println(spillere[i].getKonto().getKapital());
+			spillere[i].getKonto().setKapital(spillere[i].getKonto().getKapital() + 5);
+			System.out.println("Spiller navn: "+spillere[i].getNavn()+"Spiller kapital: "+spillere[i].getKonto().getKapital()+"Spiller placering: "+spillere[i].getPlacering());
+
 			break;
 		case 24:
-			spillere[i].getKonto().setKapital(spillere[i].getKonto().getKapital() + 2);
-			System.out.println(spillere[i].getKonto().getKapital());
+			spillere[i].getKonto().setKapital(spillere[i].getKonto().getKapital() + 5);
+			System.out.println("Spiller navn: "+spillere[i].getNavn()+"Spiller kapital: "+spillere[i].getKonto().getKapital()+"Spiller placering: "+spillere[i].getPlacering());
+
 			break;
 
 		}
