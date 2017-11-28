@@ -13,6 +13,7 @@ public class SpilController {
 		this.guiController = new GUIController();
 		this.spillerController = new SpillerController();
 		this.braetController = new BraetController();
+		braetController.opretBraet();
 		initializeGame();
 		gameloop();
 		
@@ -39,6 +40,7 @@ public class SpilController {
 			String navn = guiController.getNavnPåSpiller();
 			this.spillere[i] = new NySpiller(navn, START_KAPITAL, STARTFELT);
 		}
+		
 		guiController.addPlayers(spillere);
 		//Sæt brættet op;
 		

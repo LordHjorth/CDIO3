@@ -8,13 +8,14 @@ import gui_fields.GUI_Jail;
 import gui_fields.GUI_Refuge;
 import gui_fields.GUI_Start;
 import gui_fields.GUI_Street;
+import gui_main.GUI;
 
 public class BraetController {
 
 	public GUI_Field[] fields = new GUI_Field[24];
 
 	
-	public void opretBreat() {
+	public void opretBraet() {
 		
 		Color Start = new Color(76, 153, 0);
 		Color Madboder = new Color(102, 102, 0); 
@@ -26,7 +27,7 @@ public class BraetController {
 		Color ZooBowl = new Color(0, 102,51);
 		Color Vand = new Color(22, 3, 152);
 		
-		GUI_Field[] fields = new GUI_Field[24];
+		
 		fields[0] = new GUI_Start("START", "Modtag: 2 kr", "Du får 2 kr fra banken, hver gang du passerer start",
 				Start, Color.black);
 		fields[1] = new GUI_Street("Burgerbaren","Pris:1 kr","Burgerbaren","",Madboder,Color.BLACK);
@@ -56,7 +57,7 @@ public class BraetController {
 		fields[21] = new GUI_Chance("?", "Chance", "Prøv Lykken", Color.WHITE, Color.BLACK);
 		fields[22] = new GUI_Street("Vandlandet", " Pris: 5 kr", "Vandlandet", "", Vand, Color.WHITE);
 		fields[23] = new GUI_Street("Strandpromenaden", " Pris: 5 kr", " Strandpromenaden", "", Vand, Color.WHITE);
-	
+		GUI gui = new GUI(fields); 
 }
 	
 }
