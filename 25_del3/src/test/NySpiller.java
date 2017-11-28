@@ -1,17 +1,20 @@
 package test;
 
+
 public class NySpiller {
 	
 	private Konto konto;
 	private String navn;
 	private int placering;
-
+	
 	public NySpiller(String navn, int kapital, int startfelt) {
 		this.setKonto(new Konto(kapital));
 		this.setNavn(navn);
 		this.setPlacering(startfelt);
 	}
 
+	
+	
 	public String getNavn() {
 		return navn;
 	}

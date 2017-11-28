@@ -18,7 +18,8 @@ public class Spiller {
 		while (spillerNummer < antal) {
 			
 			String navn = gui.getUserString("Dit navn spiller" + vistSpillerNummer + " : ");
-			player[spillerNummer] = new GUI_Player(navn, setStartKapital(antal), Bil.setBil());
+			Bil bil = new Bil();
+			player[spillerNummer] = new GUI_Player(navn, setStartKapital(antal), bil.setBil());
 			gui.addPlayer(player[spillerNummer]);
 			Platform.fields[0].setCar(player[spillerNummer], true);
 

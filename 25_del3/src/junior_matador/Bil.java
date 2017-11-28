@@ -6,15 +6,15 @@ import gui_fields.GUI_Car;
 
 public class Bil {
 
-	public static void setCarFalse() {
+	public void setCarFalse() {
 		Platform.fields[Spil.getFelt()].setCar(Spiller.getSpiller(Spil.getRunde()), false);
 	}
 	
-	public static void setCarTrue() {
+	public  void setCarTrue() {
 		Platform.fields[Spil.getFelt()].setCar(Spiller.getSpiller(Spil.getRunde()), true);
 	}
 	
-	public static GUI_Car setBil() {
+	public  GUI_Car setBil() {
 		GUI_Car car = new GUI_Car();
 		String farve = Spiller.gui.getUserSelection("Farven på din bil", "Sort","Blå", "Gul", "Rød", "Grøn", "Pink");
 		if (farve == "Sort") {
