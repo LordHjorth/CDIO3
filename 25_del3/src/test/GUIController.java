@@ -35,9 +35,10 @@ public class GUIController {
 		
 	}
 	public int getAntalSpillere() {
-		int userInteger = gui.getUserInteger("Indtast antal Spillere", 2, 4);
-		return userInteger;
+	int userInteger = gui.getUserInteger("Indtast antal Spillere", 2, 4);
+	return userInteger;
 
+	
 	}
 
 	public String getNavnPåSpiller() {
