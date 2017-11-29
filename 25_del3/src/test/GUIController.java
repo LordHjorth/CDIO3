@@ -1,6 +1,9 @@
 package test;
 
 
+import java.awt.Color;
+
+import gui_fields.GUI_Car;
 import gui_fields.GUI_Player;
 
 import gui_main.GUI;
@@ -13,6 +16,7 @@ public class GUIController {
 	private GUI gui;
 	private GUI_Player[] guiPlayers;
 	private TerningController terning =new TerningController();
+	private GUI_Car car;
 
 	BraetController bræt = new BraetController();
 
@@ -53,15 +57,14 @@ public class GUIController {
 		bræt.getFelt(placering).setCar(guiPlayers[spiller], false);
 		
 	}
-
-
 	
 
 	public void addPlayers(NySpiller[] spillere) {
 		this.guiPlayers = new GUI_Player[spillere.length];
 		for (int i = 0; i < spillere.length; i++) {
-
+			
 			this.guiPlayers[i] = new GUI_Player(spillere[i].getNavn(), spillere[i].getKonto().getKapital());
+			setBilTrue(0, i);
 			gui.addPlayer(this.guiPlayers[i]);
 
 		}
