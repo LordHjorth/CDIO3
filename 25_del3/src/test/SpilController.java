@@ -1,58 +1,72 @@
 package test;
 
-import junior_matador.Bil;
-import junior_matador.Spil;
-import junior_matador.Spiller;
+import java.util.*;
 
 public class SpilController {
 
 	private final int STARTFELT = 0;
 	private GUIController guiController;
-	private SpillerController spillerController;
-	private BraetController braetController;
 	private NySpiller[] spillere;
 	private int startKapital;
+	private boolean noWinner = false;
+	ChancekortController chancekort = new ChancekortController();
 
 	public void playGame() {
 		this.guiController = new GUIController();
-		this.spillerController = new SpillerController();
-		this.braetController = new BraetController();
 		initializeGame();
 		gameloop();
-
 	}
 
 	private void gameloop() {
-		boolean noWinner = false;
-		int i = 0;
 		while (!noWinner) {
-			int a = guiController.setDice();
+			for (int i = 0; i < spillere.length; i++) {
+				int faceValue = guiController.setDice();
 
-			guiController.setBilFalse(spillere[i].getPlacering(), i);
+				guiController.setBilFalse(spillere[i].getPlacering(), i);
 
-			if (spillere[i].getPlacering() + a >= 24) {
-				spillere[i].setPlacering(spillere[i].getPlacering() + a - 24);
+				if (spillere[i].getPlacering() + faceValue > 23) {
+					passerStart(i);
+					spillere[i].setPlacering(spillere[i].getPlacering() + faceValue - 24);
 
-			} else {
+				} else {
+					spillere[i].setPlacering(spillere[i].getPlacering() + faceValue);
+				}
 
-				spillere[i].setPlacering(spillere[i].getPlacering() + a);
+				guiController.setBilTrue(spillere[i].getPlacering(), i);
+				konsekvensAfFelter(i);
+				guiController.setNyBalance(i, spillere[i].getKonto().getKapital());
+
+				pickAWinner(i);
+
+				System.out.println("Spiller navn: " + spillere[i].getNavn() + "Spiller kapital: "
+						+ spillere[i].getKonto().getKapital() + "Spiller placering: " + spillere[i].getPlacering());
 			}
-
-			konsekvensAfFelter(i);
-			guiController.setBilTrue(spillere[i].getPlacering(), i);
-
-			i++;
-			if (i >= this.spillere.length) {
-				i = 0;
-			}
-
 		}
+		System.exit(0);
+	}
 
+	private void pickAWinner(int spiller) {
+		int vinderBalance = 0;
+		List<String> vinderNavn = new ArrayList<String>();
+
+		if (spillere[spiller].getKonto().getKapital() < 0) {
+			noWinner = true;
+			for (int i = 0; i < spillere.length; i++) {
+				if (spillere[i].getKonto().getKapital() > vinderBalance) {
+					vinderNavn.clear();
+					vinderNavn.add(spillere[i].getNavn());
+					vinderBalance = spillere[i].getKonto().getKapital();
+				} else if (spillere[i].getKonto().getKapital() == vinderBalance) {
+					vinderNavn.add(spillere[i].getNavn());
+					vinderBalance = spillere[i].getKonto().getKapital();
+				}
+			}
+			guiController.getVinderBesked(vinderNavn);
+		}
 	}
 
 	private void initializeGame() {
 		// Find ud af antalSpillere
-
 		int antalSpillere = guiController.getAntalSpillere();
 		if (antalSpillere == 2) {
 			startKapital = 20;
@@ -71,121 +85,114 @@ public class SpilController {
 			this.spillere[i] = new NySpiller(navn, startKapital, STARTFELT);
 		}
 		guiController.addPlayers(spillere);
-
+		chancekort.opretChancekort();
 	}
 
 	public void konsekvensAfFelter(int i) {
 
-		switch (spillere[i].getPlacering()-1) {
+		switch (spillere[i].getPlacering() + 1) {
 
-		case 1:
+		case 1: // start
 			break;
 		case 2:
-			spillere[i].getKonto().setKapital(spillere[i].getKonto().getKapital() -1);
-			System.out.println("Spiller navn: "+spillere[i].getNavn()+"Spiller kapital: "+spillere[i].getKonto().getKapital()+"Spiller placering: "+spillere[i].getPlacering());
+			landOnField(i, -1);
 			break;
 		case 3:
-			spillere[i].getKonto().setKapital(spillere[i].getKonto().getKapital() -1);
-			System.out.println("Spiller navn: "+spillere[i].getNavn()+"Spiller kapital: "+spillere[i].getKonto().getKapital()+"Spiller placering: "+spillere[i].getPlacering());
-
+			landOnField(i, -1);
 			break;
-		case 4:// chance felt
-			spillere[i].getKonto().setKapital(spillere[i].getKonto().getKapital() + 0);
-			System.out.println("Spiller navn: "+spillere[i].getNavn()+"Spiller kapital: "+spillere[i].getKonto().getKapital()+"Spiller placering: "+spillere[i].getPlacering());
-
+		case 4:// chance
+			landOnChancekort(i);
 			break;
 		case 5:
-			spillere[i].getKonto().setKapital(spillere[i].getKonto().getKapital() -1);
-			System.out.println("Spiller navn: "+spillere[i].getNavn()+"Spiller kapital: "+spillere[i].getKonto().getKapital()+"Spiller placering: "+spillere[i].getPlacering());
-
+			landOnField(i, -1);
 			break;
 		case 6:
-			spillere[i].getKonto().setKapital(spillere[i].getKonto().getKapital() -1);
-			System.out.println("Spiller navn: "+spillere[i].getNavn()+"Spiller kapital: "+spillere[i].getKonto().getKapital()+"Spiller placering: "+spillere[i].getPlacering());
-
+			landOnField(i, -1);
 			break;
 		case 7:// jail på besøg
+			guiController.showMessage("PÅ BESØG");
+			// guiController.setBilTrue(spillere[i].getPlacering()-12, i);
 			break;
 		case 8:
-			spillere[i].getKonto().setKapital(spillere[i].getKonto().getKapital() -2);
-			System.out.println("Spiller navn: "+spillere[i].getNavn()+"Spiller kapital: "+spillere[i].getKonto().getKapital()+"Spiller placering: "+spillere[i].getPlacering());
+			landOnField(i, -2);
 			break;
 		case 9:
-			spillere[i].getKonto().setKapital(spillere[i].getKonto().getKapital() -2);
-			System.out.println("Spiller navn: "+spillere[i].getNavn()+"Spiller kapital: "+spillere[i].getKonto().getKapital()+"Spiller placering: "+spillere[i].getPlacering());
-
+			landOnField(i, -2);
 			break;
 		case 10: // chance
-			spillere[i].getKonto().setKapital(spillere[i].getKonto().getKapital() +0);
-			System.out.println("Spiller navn: "+spillere[i].getNavn()+"Spiller kapital: "+spillere[i].getKonto().getKapital()+"Spiller placering: "+spillere[i].getPlacering());
-
+			landOnChancekort(i);
 			break;
 		case 11:
-			spillere[i].getKonto().setKapital(spillere[i].getKonto().getKapital() -2);
-			System.out.println("Spiller navn: "+spillere[i].getNavn()+"Spiller kapital: "+spillere[i].getKonto().getKapital()+"Spiller placering: "+spillere[i].getPlacering());
-
+			landOnField(i, -2);
 			break;
 		case 12:
-			spillere[i].getKonto().setKapital(spillere[i].getKonto().getKapital() -2);
-			System.out.println("Spiller navn: "+spillere[i].getNavn()+"Spiller kapital: "+spillere[i].getKonto().getKapital()+"Spiller placering: "+spillere[i].getPlacering());
-
+			landOnField(i, -2);
 			break;
 		case 13:// free parking
+			guiController.showMessage("FREE PARKING");
 			break;
 		case 14:
-			spillere[i].getKonto().setKapital(spillere[i].getKonto().getKapital() -3);
-			System.out.println("Spiller navn: "+spillere[i].getNavn()+"Spiller kapital: "+spillere[i].getKonto().getKapital()+"Spiller placering: "+spillere[i].getPlacering());
-
+			landOnField(i, -3);
 			break;
 		case 15:
-			spillere[i].getKonto().setKapital(spillere[i].getKonto().getKapital() -3);
-			System.out.println("Spiller navn: "+spillere[i].getNavn()+"Spiller kapital: "+spillere[i].getKonto().getKapital()+"Spiller placering: "+spillere[i].getPlacering());
-
+			landOnField(i, -3);
 			break;
-		case 16:// chance kort
-			spillere[i].getKonto().setKapital(spillere[i].getKonto().getKapital() + 0);
-			System.out.println("Spiller navn: "+spillere[i].getNavn()+"Spiller kapital: "+spillere[i].getKonto().getKapital()+"Spiller placering: "+spillere[i].getPlacering());
-
+		case 16:// chance
+			landOnChancekort(i);
 			break;
 		case 17:
-			spillere[i].getKonto().setKapital(spillere[i].getKonto().getKapital() -3);
-			System.out.println("Spiller navn: "+spillere[i].getNavn()+"Spiller kapital: "+spillere[i].getKonto().getKapital()+"Spiller placering: "+spillere[i].getPlacering());
-
+			landOnField(i, -3);
 			break;
 		case 18:
-			spillere[i].getKonto().setKapital(spillere[i].getKonto().getKapital() -3);
-			System.out.println("Spiller navn: "+spillere[i].getNavn()+"Spiller kapital: "+spillere[i].getKonto().getKapital()+"Spiller placering: "+spillere[i].getPlacering());
-
+			landOnField(i, -3);
 			break;
 		case 19:
-			//Go to jail
+			// Go to jail
+			guiController.showMessage("GÅ I FÆNGSEL");
 			break;
 		case 20:
-			spillere[i].getKonto().setKapital(spillere[i].getKonto().getKapital() -4);
-			System.out.println("Spiller navn: "+spillere[i].getNavn()+"Spiller kapital: "+spillere[i].getKonto().getKapital()+"Spiller placering: "+spillere[i].getPlacering());
-
+			landOnField(i, -4);
 			break;
 		case 21:
-			spillere[i].getKonto().setKapital(spillere[i].getKonto().getKapital() -4);
-			System.out.println("Spiller navn: "+spillere[i].getNavn()+"Spiller kapital: "+spillere[i].getKonto().getKapital()+"Spiller placering: "+spillere[i].getPlacering());
-
+			landOnField(i, -4);
 			break;
 		case 22:// chance
-			spillere[i].getKonto().setKapital(spillere[i].getKonto().getKapital() +0);
-			System.out.println("Spiller navn: "+spillere[i].getNavn()+"Spiller kapital: "+spillere[i].getKonto().getKapital()+"Spiller placering: "+spillere[i].getPlacering());
-
+			landOnChancekort(i);
 			break;
 		case 23:
-			spillere[i].getKonto().setKapital(spillere[i].getKonto().getKapital() + 5);
-			System.out.println("Spiller navn: "+spillere[i].getNavn()+"Spiller kapital: "+spillere[i].getKonto().getKapital()+"Spiller placering: "+spillere[i].getPlacering());
-
+			landOnField(i, -5);
 			break;
 		case 24:
-			spillere[i].getKonto().setKapital(spillere[i].getKonto().getKapital() + 5);
-			System.out.println("Spiller navn: "+spillere[i].getNavn()+"Spiller kapital: "+spillere[i].getKonto().getKapital()+"Spiller placering: "+spillere[i].getPlacering());
-
+			landOnField(i, -5);
 			break;
-
 		}
+	}
+
+	public void landOnChancekort(int i) {
+
+		ChancekortController chancekortet = chancekort.getChancekort();
+		landOnField(i, chancekortet.getBeløb());
+		guiController.setBilFalse(spillere[i].getPlacering(), i);
+		
+		if (chancekortet.getValue() == 5 || chancekortet.getValue() == 1) {
+			spillere[i].setPlacering(chancekortet.getFelt());
+		}
+		else {
+			spillere[i].setPlacering(spillere[i].getPlacering() + chancekortet.getFelt());
+		}
+		if (chancekortet.getValue() == 2 || chancekortet.getValue() == 3) {
+			konsekvensAfFelter(i);
+		}
+
+		guiController.setBilTrue(spillere[i].getPlacering(), i);
+		guiController.showMessage(chancekortet.getTekst());
+	}
+	
+
+	private void landOnField(int i, int nyBalance) {
+		spillere[i].getKonto().setKapital(spillere[i].getKonto().getKapital() + nyBalance);
+	}
+	private void passerStart(int i) {
+		spillere[i].getKonto().setKapital(spillere[i].getKonto().getKapital() + 2);
 	}
 }

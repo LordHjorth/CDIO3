@@ -8,10 +8,10 @@ import gui_fields.GUI_Jail;
 import gui_fields.GUI_Refuge;
 import gui_fields.GUI_Start;
 import gui_fields.GUI_Street;
-import gui_main.GUI;
-import junior_matador.Platform;
 
 public class BraetController {
+	
+
 
 	GUI_Field[] fields = new GUI_Field[24];
 
@@ -20,7 +20,6 @@ public class BraetController {
 	}
 	
 	public GUI_Field[] opretBreat() {
-		
 
 		Color Start = new Color(76, 153, 0);
 		Color Madboder = new Color(102, 102, 0); 
