@@ -10,10 +10,11 @@ public class GUIController {
 	private GUI_Player[] guiPlayers;
 	private TerningController terning =new TerningController();
 
-	BraetController bræt = new BraetController();
+	BraetController braetController;
 
-	public GUIController() {
-		this.gui = new GUI(bræt.opretBreat());
+	public GUIController(BraetController braetController) {
+		this.braetController = braetController;
+		this.gui = new GUI(braetController.opretBreat());
 	}
 	
 	public int setDice() {
@@ -34,11 +35,11 @@ public class GUIController {
 	}
 	
 	public void setBilTrue(int placering, int spiller) {
-		bræt.getFelt(placering).setCar(guiPlayers[spiller], true);
+		braetController.getFelt(placering).setCar(guiPlayers[spiller], true);
 	}
 	
 	public void setBilFalse(int placering, int spiller) {
-		bræt.getFelt(placering).setCar(guiPlayers[spiller], false);
+		braetController.getFelt(placering).setCar(guiPlayers[spiller], false);
 	}
 	
 

@@ -11,8 +11,6 @@ import gui_fields.GUI_Street;
 
 public class BraetController {
 	
-
-
 	GUI_Field[] fields = new GUI_Field[24];
 
 	public GUI_Field getFelt(int i) {

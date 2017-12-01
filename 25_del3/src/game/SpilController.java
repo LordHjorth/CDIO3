@@ -10,9 +10,10 @@ public class SpilController {
 	private int startKapital;
 	private boolean noWinner = false;
 	ChancekortController chancekort = new ChancekortController();
+	BraetController braetController = new BraetController();
 
 	public void playGame() {
-		this.guiController = new GUIController();
+		this.guiController = new GUIController(braetController);
 		initializeGame();
 		gameloop();
 	}
@@ -175,6 +176,10 @@ public class SpilController {
 		guiController.setBilFalse(spillere[i].getPlacering(), i);
 		
 		if (chancekortet.getValue() == 5 || chancekortet.getValue() == 1) {
+			if(chancekortet.getValue() == 5 && spillere[i].getPlacering() == 21) {
+				spillere[i].setPlacering(spillere[i].getPlacering()-24);
+				passerStart(i);
+			}
 			spillere[i].setPlacering(chancekortet.getFelt());
 		}
 		else {
