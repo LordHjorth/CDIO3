@@ -20,12 +20,11 @@ public class KontoTest1 {
 
 	@Test
 	public void test1() {
-		Konto kontotest = new Konto(100);
-		kontotest.setKapital(100); // Sætter en værdi for kontoen
+		Konto kontoTest = new Konto(100);
+		kontoTest.setKapital(100); // Sætter en værdi for kontoen
 		int expected = 100;
-		int actual = kontotest.getKapital(); // Henter værdien og tester for det indsatte
-		assertEquals(expected, actual);
-
+		int actual = kontoTest.getKapital(); // Henter værdien og tester for det indsatte
+		assertEquals("Testen virkede ikke", expected, actual);
 	}
 
 }

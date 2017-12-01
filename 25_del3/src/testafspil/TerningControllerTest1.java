@@ -21,7 +21,7 @@ public class TerningControllerTest1 {
 
 		TerningController testTerning = new TerningController();
 
-		int[] sum = { 0, 0, 0, 0, 0, 0, };
+		int[] sum = { 0, 0, 0, 0, 0, 0};
 
 		int i = 0;
 		while (i < 100000) {
