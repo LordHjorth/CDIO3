@@ -12,6 +12,7 @@ public class NySpiller{
 		this.setNavn(navn);
 		this.setPlacering(startfelt);
 	}
+	public NySpiller() {}
 
 	
 	
