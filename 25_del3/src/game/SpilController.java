@@ -177,7 +177,7 @@ public class SpilController {
 		landOnField(i, chancekortet.getBeløb());
 		guiController.setBilFalse(spillere[i].getPlacering(), i);
 		
-		if (chancekortet.getValue() == 2 || chancekortet.getValue() == 1) { //speciel for 2 specifikke chancekort, da placering opdateres på anderledes måde end de andre
+		if (chancekortet.getValue() == 2 || chancekortet.getValue() == 1 || chancekortet.getValue() == 5) { //speciel for 2 specifikke chancekort, da placering opdateres på anderledes måde end de andre
 			if(chancekortet.getValue() == 2 && spillere[i].getPlacering() == 21) { //hvis spilleren står på sidste chancekort OG skal rykke 5 felter frem, så startes runde forfra.
 				spillere[i].setPlacering(spillere[i].getPlacering()-24); //en ny runde startes
 				passerStart(i);
