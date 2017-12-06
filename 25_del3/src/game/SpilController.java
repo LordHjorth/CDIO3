@@ -8,7 +8,7 @@ public class SpilController {
 	private GUIController guiController;
 	private NySpiller[] spillere;
 	private int startKapital;
-	private boolean noWinner = false;
+	private boolean noWinner = true;
 	ChancekortController chancekort = new ChancekortController();
 	BraetController braetController = new BraetController();
 
@@ -19,7 +19,7 @@ public class SpilController {
 	}
 
 	private void gameloop() {
-		while (!noWinner) {
+		while (noWinner) {
 			for (int i = 0; i < spillere.length; i++) {
 				int faceValue = guiController.setDice();
 
@@ -39,8 +39,8 @@ public class SpilController {
 
 				pickAWinner(i);
 
-				System.out.println("Spiller navn: " + spillere[i].getNavn() + "Spiller kapital: "
-						+ spillere[i].getKonto().getKapital() + "Spiller placering: " + spillere[i].getPlacering());
+				System.out.println("Spiller navn: " + spillere[i].getNavn() + " Spiller kapital: "
+						+ spillere[i].getKonto().getKapital() + " Spiller placering: " + spillere[i].getPlacering());
 			}
 		}
 		System.exit(0);
@@ -51,7 +51,7 @@ public class SpilController {
 		List<String> vinderNavn = new ArrayList<String>();
 
 		if (spillere[spiller].getKonto().getKapital() < 0) {
-			noWinner = true;
+			noWinner = false;
 			for (int i = 0; i < spillere.length; i++) {
 				if (spillere[i].getKonto().getKapital() > vinderBalance) {
 					vinderNavn.clear();
@@ -89,7 +89,7 @@ public class SpilController {
 		chancekort.opretChancekort();
 	}
 
-	public void konsekvensAfFelter(int i) {
+	private void konsekvensAfFelter(int i) {
 
 		switch (spillere[i].getPlacering() + 1) {
 
@@ -112,7 +112,6 @@ public class SpilController {
 			break;
 		case 7:// jail på besøg
 			guiController.showMessage("PÅ BESØG");
-			// guiController.setBilTrue(spillere[i].getPlacering()-12, i);
 			break;
 		case 8:
 			landOnField(i, -2);
@@ -150,6 +149,9 @@ public class SpilController {
 		case 19:
 			// Go to jail
 			guiController.showMessage("GÅ I FÆNGSEL");
+			guiController.setBilFalse(spillere[i].getPlacering(), i);
+			spillere[i].setPlacering(spillere[i].getPlacering()-12);
+			guiController.setBilTrue(spillere[i].getPlacering(), i);
 			break;
 		case 20:
 			landOnField(i, -4);
@@ -169,23 +171,23 @@ public class SpilController {
 		}
 	}
 
-	public void landOnChancekort(int i) {
+	private void landOnChancekort(int i) {
 
 		ChancekortController chancekortet = chancekort.getChancekort();
 		landOnField(i, chancekortet.getBeløb());
 		guiController.setBilFalse(spillere[i].getPlacering(), i);
 		
-		if (chancekortet.getValue() == 5 || chancekortet.getValue() == 1) {
-			if(chancekortet.getValue() == 5 && spillere[i].getPlacering() == 21) {
-				spillere[i].setPlacering(spillere[i].getPlacering()-24);
+		if (chancekortet.getValue() == 2 || chancekortet.getValue() == 1) { //speciel for 2 specifikke chancekort, da placering opdateres på anderledes måde end de andre
+			if(chancekortet.getValue() == 2 && spillere[i].getPlacering() == 21) { //hvis spilleren står på sidste chancekort OG skal rykke 5 felter frem, så startes runde forfra.
+				spillere[i].setPlacering(spillere[i].getPlacering()-24); //en ny runde startes
 				passerStart(i);
 			}
-			spillere[i].setPlacering(chancekortet.getFelt());
+			spillere[i].setPlacering(chancekortet.getFelt()); 
 		}
 		else {
 			spillere[i].setPlacering(spillere[i].getPlacering() + chancekortet.getFelt());
 		}
-		if (chancekortet.getValue() == 2 || chancekortet.getValue() == 3) {
+		if (chancekortet.getValue() == 2 || chancekortet.getValue() == 3) { 
 			konsekvensAfFelter(i);
 		}
 

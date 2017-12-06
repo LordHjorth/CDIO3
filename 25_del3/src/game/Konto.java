@@ -2,7 +2,7 @@ package game;
 
 public class Konto{
 
-	private int kapital = 0;
+	private int kapital;
 
 	public Konto(int kapital) {
 		this.setKapital(kapital);

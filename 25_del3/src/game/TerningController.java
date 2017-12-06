@@ -19,7 +19,6 @@ public class TerningController {
 
 	public void kastTerning() {
 		terning = random.nextInt(6) + 1;
-//		terning = 3;
 		
 	}
 

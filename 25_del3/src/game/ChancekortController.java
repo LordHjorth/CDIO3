@@ -17,7 +17,6 @@ public class ChancekortController {
 		this.setBeløb(beløb);
 		this.setFelt(felt);
 		this.setValue(value);
-		
 	}
 	
 	private ChancekortController[] chancekortController = new ChancekortController[7];
@@ -35,7 +34,7 @@ public class ChancekortController {
 	public ChancekortController getChancekort() {
 		Random random = new Random();
 		int i = random.nextInt(chancekortController.length);
-		return chancekortController[i];
+		return chancekortController[4];
 	}
 
 	public String getTekst() {
