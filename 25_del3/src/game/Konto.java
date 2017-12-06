@@ -2,6 +2,8 @@ package game;
 
 public class Konto{
 
+	//Klassen bruges til at holde styr på spillerens balance.
+	
 	private int kapital;
 
 	public Konto(int kapital) {

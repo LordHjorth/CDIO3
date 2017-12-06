@@ -12,20 +12,20 @@ public class SpilController {
 	ChancekortController chancekort = new ChancekortController();
 	BraetController braetController = new BraetController();
 
-	public void playGame() {
+	public void playGame() { //opsamler metoder og objekter i en enkelt metode, som derefter kan kaldes i main.
 		this.guiController = new GUIController(braetController);
 		initializeGame();
 		gameloop();
 	}
 
-	private void gameloop() {
+	private void gameloop() { 
 		while (noWinner) {
 			for (int i = 0; i < spillere.length; i++) {
 				int faceValue = guiController.setDice();
 
-				guiController.setBilFalse(spillere[i].getPlacering(), i);
+				guiController.setBilFalse(spillere[i].getPlacering(), i); //fjerner nuværende bil fra brættet
 
-				if (spillere[i].getPlacering() + faceValue > 23) {
+				if (spillere[i].getPlacering() + faceValue > 23) { //i tilfælde af at arrayets størrelse overskrides, startes en ny runde. (passerer start)
 					passerStart(i);
 					spillere[i].setPlacering(spillere[i].getPlacering() + faceValue - 24);
 
@@ -33,20 +33,20 @@ public class SpilController {
 					spillere[i].setPlacering(spillere[i].getPlacering() + faceValue);
 				}
 
-				guiController.setBilTrue(spillere[i].getPlacering(), i);
-				konsekvensAfFelter(i);
-				guiController.setNyBalance(i, spillere[i].getKonto().getKapital());
-
-				pickAWinner(i);
+				guiController.setBilTrue(spillere[i].getPlacering(), i); //sætter ny bil for spilleren
+				konsekvensAfFelter(i); //finder konsekvensen af det felt man lander på.
+				guiController.setNyBalance(i, spillere[i].getKonto().getKapital()); //opdaterer spillerens balance
 
 				System.out.println("Spiller navn: " + spillere[i].getNavn() + " Spiller kapital: "
-						+ spillere[i].getKonto().getKapital() + " Spiller placering: " + spillere[i].getPlacering());
+						+ spillere[i].getKonto().getKapital() + " Spiller placering: " + spillere[i].getPlacering()); 
+				//udskriver spillerens navn, kapital og placering for at udviklingen af spillet, kan følges i konsollen.
+				
+				pickAWinner(i); //tjekker om der er nogen vinder
 			}
 		}
-		System.exit(0);
 	}
 
-	private void pickAWinner(int spiller) {
+	private void pickAWinner(int spiller) { //tjekker for vindere
 		int vinderBalance = 0;
 		List<String> vinderNavn = new ArrayList<String>();
 
@@ -63,12 +63,14 @@ public class SpilController {
 				}
 			}
 			guiController.getVinderBesked(vinderNavn);
+			System.exit(0); //lukker guien og spiller stopper når en vinder er fundet.
 		}
 	}
 
 	private void initializeGame() {
-		// Find ud af antalSpillere
+		// Finder antal af spillere
 		int antalSpillere = guiController.getAntalSpillere();
+		
 		if (antalSpillere == 2) {
 			startKapital = 20;
 		}
@@ -79,19 +81,19 @@ public class SpilController {
 			startKapital = 16;
 		}
 
-		this.spillere = new NySpiller[antalSpillere];
+		this.spillere = new NySpiller[antalSpillere]; //opretter et nyt arrayer for NySpiller
 
-		for (int i = 0; i < this.spillere.length; i++) {
+		for (int i = 0; i < this.spillere.length; i++) { //sætter spillerne i arrayet
 			String navn = guiController.getNavnPåSpiller();
 			this.spillere[i] = new NySpiller(navn, startKapital, STARTFELT);
 		}
-		guiController.addPlayers(spillere);
-		chancekort.opretChancekort();
+		guiController.addPlayers(spillere); //tilføjer spillerne til gui'en
+		chancekort.opretChancekort(); //opretter chancekortene
 	}
 
-	private void konsekvensAfFelter(int i) {
+	private void konsekvensAfFelter(int i) { //finder konsekvensen af et vilkårligt felt
 
-		switch (spillere[i].getPlacering() + 1) {
+		switch (spillere[i].getPlacering() + 1) { //spillerens placering bestemmer hvilken case man ender i.
 
 		case 1: // start
 			break;
@@ -146,8 +148,7 @@ public class SpilController {
 		case 18:
 			landOnField(i, -3);
 			break;
-		case 19:
-			// Go to jail
+		case 19: // Go to jail
 			guiController.showMessage("GÅ I FÆNGSEL");
 			guiController.setBilFalse(spillere[i].getPlacering(), i);
 			spillere[i].setPlacering(spillere[i].getPlacering()-12);
@@ -171,7 +172,7 @@ public class SpilController {
 		}
 	}
 
-	private void landOnChancekort(int i) {
+	private void landOnChancekort(int i) { //konsekvenser for at lande på et chancekort
 
 		ChancekortController chancekortet = chancekort.getChancekort();
 		landOnField(i, chancekortet.getBeløb());
@@ -196,10 +197,10 @@ public class SpilController {
 	}
 	
 
-	private void landOnField(int i, int nyBalance) {
+	private void landOnField(int i, int nyBalance) { //opdaterer blance for at lande på et "normalt" felt.
 		spillere[i].getKonto().setKapital(spillere[i].getKonto().getKapital() + nyBalance);
 	}
-	private void passerStart(int i) {
+	private void passerStart(int i) { //giver spillere 2 point for at passere start
 		spillere[i].getKonto().setKapital(spillere[i].getKonto().getKapital() + 2);
 	}
 }

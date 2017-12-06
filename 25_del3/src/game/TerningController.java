@@ -3,6 +3,8 @@ package game;
 import java.util.Random;
 
 public class TerningController {
+	
+	//Terningens værdi er baseret på java.util.Random, som bruges til at fremskaffe en tilfældig værdi. Denne kan tilgås ved brug af getters
 
 	Random random = new Random();
 

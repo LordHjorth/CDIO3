@@ -13,11 +13,11 @@ public class BraetController {
 	
 	GUI_Field[] fields = new GUI_Field[24];
 
-	public GUI_Field getFelt(int i) {
+	public GUI_Field getFelt(int i) { //henter et felt fra fields arrayet
 		return fields[i];
 	}
 	
-	public GUI_Field[] opretBreat() {
+	public GUI_Field[] opretBreat() { //opretter Spillebræt
 
 		Color Start = new Color(76, 153, 0);
 		Color Madboder = new Color(102, 102, 0); 

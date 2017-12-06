@@ -3,6 +3,10 @@ package game;
 
 public class NySpiller{
 	
+	//bruges til at oprette spillere, som derefter kan sættes ind i GUI'ens GUI_Player.
+	//spilleren her har et navn, kapital, og et startfelt. 
+	//Løbende kan de 3 parametre opdateres ved brug af getters og setters.
+	
 	private Konto konto;
 	private String navn;
 	private int placering;

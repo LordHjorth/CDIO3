@@ -12,7 +12,7 @@ public class ChancekortController {
 	public ChancekortController() {
 	}
 	
-	public ChancekortController(String tekst, int beløb, int felt, int value) {
+	public ChancekortController(String tekst, int beløb, int felt, int value) { //bruges til at oprette chancekortene
 		this.setTekst(tekst);
 		this.setBeløb(beløb);
 		this.setFelt(felt);
@@ -21,7 +21,7 @@ public class ChancekortController {
 	
 	private ChancekortController[] chancekortController = new ChancekortController[7];
 	
-	public void opretChancekort() {
+	public void opretChancekort() { //opretter chancekort arrayet
 		chancekortController[0] = new ChancekortController("Ryk frem til Start og modtag 2 kroner", 2, 0, 1);
 		chancekortController[1] = new ChancekortController("Ryk 5 felter frem", 0, 5, 2);
 		chancekortController[2] = new ChancekortController("Ryk et felt frem", 0, 1, 3);
@@ -31,13 +31,13 @@ public class ChancekortController {
 		chancekortController[6] = new ChancekortController("Du har lavet alle dine lektier. Du modtager 2 kroner", 2, 0, 7);
 	}
 
-	public ChancekortController getChancekort() {
+	public ChancekortController getChancekort() { //henter et tilfældigt chancekort
 		Random random = new Random();
 		int i = random.nextInt(chancekortController.length);
-		return chancekortController[4];
+		return chancekortController[i];
 	}
 
-	public String getTekst() {
+	public String getTekst() { 
 		return tekst;
 	}
 	
