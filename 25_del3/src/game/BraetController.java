@@ -11,7 +11,7 @@ import gui_fields.GUI_Street;
 
 public class BraetController {
 	
-	GUI_Field[] fields = new GUI_Field[24];
+	GUI_Field[] fields = new GUI_Field[24]; //opretter en reference til et array med 24 pladser
 
 	public GUI_Field getFelt(int i) { //henter et felt fra fields arrayet
 		return fields[i];

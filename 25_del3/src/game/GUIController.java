@@ -17,14 +17,14 @@ public class GUIController {
 		this.gui = new GUI(braetController.opretBreat());
 	}
 	
-	public int setDice() { //kasterne terning og returnere værdien.
+	public int setDice() { //kasterne terning og returnere værdien. Samt opretter kast knappen.
 		gui.getUserButtonPressed("Kast Terning", "Kast");
-		terning.kastTerning();
 		gui.setDie(terning.getTerning());
+		terning.kastTerning();
 		return terning.getTerning();
 	}
 	
-	public int getAntalSpillere() { //får brugeren til at indtaste antal af spillere i et interval mellem 2 og 4.
+	public int getAntalSpillere() { //får brugeren til at indtaste antal af spillere i et interval mellem 2 og 4. vælger altså antal spillere
 		int userInteger = gui.getUserInteger("Indtast antal Spillere", 2, 4);
 		return userInteger;
 	}
@@ -34,11 +34,11 @@ public class GUIController {
 		return navn;
 	}
 	
-	public void setBilTrue(int placering, int spiller) { //Sætter en bil på brættet
+	public void setBilTrue(int placering, int spiller) { //Sætter en bil på brættet, når brugeren har indtastet navn
 		braetController.getFelt(placering).setCar(guiPlayers[spiller], true);
 	}
 	
-	public void setBilFalse(int placering, int spiller) { //fjerner en bil fra brættet
+	public void setBilFalse(int placering, int spiller) { //fjerner en bil fra brættet, da der ellers ville som standard være en bil på brættet, men det skal først komme når man starter spillet
 		braetController.getFelt(placering).setCar(guiPlayers[spiller], false);
 	}
 	
@@ -46,14 +46,14 @@ public class GUIController {
 	public void addPlayers(NySpiller[] spillere) { //tilføjer et array af spillere til gui'ens GUI_Player array, så de kan blive vist på brættet
 		this.guiPlayers = new GUI_Player[spillere.length];
 		for (int i = 0; i < spillere.length; i++) {
-			this.guiPlayers[i] = new GUI_Player(spillere[i].getNavn(), spillere[i].getKonto().getKapital());
+			this.guiPlayers[i] = new GUI_Player(spillere[i].getNavn(), spillere[i].getKonto().getKapital()); //tilføjer spillerne til spille plade, hvor navn og kapital vises
 			setBilTrue(0, i);
 			gui.addPlayer(this.guiPlayers[i]);
 		}
 	}
 	
 	public void getVinderBesked(List<String> s) { //viser en super nice og flot og awesome og sjov kommentar på gui'en
-		gui.showMessage(s.toString().toUpperCase() + " HAR VUNDET! GZ M8. GGWP. GL");
+		gui.showMessage(s.toString().toUpperCase()  + " HAR VUNDET! GZ M8. GGWP. GL");
 	}
 	
 	public void setNyBalance(int spiller, int ekstraBalance) { //sætter ny balance for spilleren

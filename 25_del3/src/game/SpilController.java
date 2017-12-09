@@ -8,7 +8,7 @@ public class SpilController {
 	private GUIController guiController;
 	private NySpiller[] spillere;
 	private int startKapital;
-	private boolean noWinner = true;
+	private boolean noWinner = true; //sættes til true, fordi der ikke er nogen vinder fra start af
 	ChancekortController chancekort = new ChancekortController();
 	BraetController braetController = new BraetController();
 
@@ -17,13 +17,13 @@ public class SpilController {
 		initializeGame();
 		gameloop();
 	}
-
+	
 	private void gameloop() { 
 		while (noWinner) {
 			for (int i = 0; i < spillere.length; i++) {
 				int faceValue = guiController.setDice();
 
-				guiController.setBilFalse(spillere[i].getPlacering(), i); //fjerner nuværende bil fra brættet
+				guiController.setBilFalse(spillere[i].getPlacering(), i); //fjerner nuværende bil fra brættet, også snart der rykkes tilføjes bilen efterfølgende på den nye placering i linje 36
 
 				if (spillere[i].getPlacering() + faceValue > 23) { //i tilfælde af at arrayets størrelse overskrides, startes en ny runde. (passerer start)
 					passerStart(i);
@@ -35,13 +35,13 @@ public class SpilController {
 
 				guiController.setBilTrue(spillere[i].getPlacering(), i); //sætter ny bil for spilleren
 				konsekvensAfFelter(i); //finder konsekvensen af det felt man lander på.
-				guiController.setNyBalance(i, spillere[i].getKonto().getKapital()); //opdaterer spillerens balance
+				guiController.setNyBalance(i, spillere[i].getKonto().getKapital()); //opdaterer spillerens balance for hver gang der slås
 
 				System.out.println("Spiller navn: " + spillere[i].getNavn() + " Spiller kapital: "
 						+ spillere[i].getKonto().getKapital() + " Spiller placering: " + spillere[i].getPlacering()); 
 				//udskriver spillerens navn, kapital og placering for at udviklingen af spillet, kan følges i konsollen.
 				
-				pickAWinner(i); //tjekker om der er nogen vinder
+				pickAWinner(i); //tjekker om der er nogen vinder, altså hele tiden om en af spilleren i arrayet's balance ryger under 0
 			}
 		}
 	}
@@ -178,7 +178,7 @@ public class SpilController {
 		landOnField(i, chancekortet.getBeløb());
 		guiController.setBilFalse(spillere[i].getPlacering(), i);
 		
-		if (chancekortet.getValue() == 2 || chancekortet.getValue() == 1 || chancekortet.getValue() == 5) { //speciel for 2 specifikke chancekort, da placering opdateres på anderledes måde end de andre
+		if (chancekortet.getValue() == 2 || chancekortet.getValue() == 1 || chancekortet.getValue() == 5) { //speciel for 2 specifikke chancekort, da KUN placering opdateres på anderledes måde end de andre
 			if(chancekortet.getValue() == 2 && spillere[i].getPlacering() == 21) { //hvis spilleren står på sidste chancekort OG skal rykke 5 felter frem, så startes runde forfra.
 				spillere[i].setPlacering(spillere[i].getPlacering()-24); //en ny runde startes
 				passerStart(i);
@@ -192,12 +192,12 @@ public class SpilController {
 			konsekvensAfFelter(i);
 		}
 
-		guiController.setBilTrue(spillere[i].getPlacering(), i);
+		guiController.setBilTrue(spillere[i].getPlacering(), i); //flytter spillerens bil rundt på bordet.
 		guiController.showMessage(chancekortet.getTekst());
 	}
 	
 
-	private void landOnField(int i, int nyBalance) { //opdaterer blance for at lande på et "normalt" felt.
+	private void landOnField(int i, int nyBalance) { //opdaterer blance for at lande på et "normalt", som IKKE er chancekort felt.
 		spillere[i].getKonto().setKapital(spillere[i].getKonto().getKapital() + nyBalance);
 	}
 	private void passerStart(int i) { //giver spillere 2 point for at passere start
